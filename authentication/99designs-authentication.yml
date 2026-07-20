@@ -1,0 +1,26 @@
+generated: '2026-07-17'
+method: searched
+source: openapi/99designs-openapi.yml
+docs: https://api.99designs.com/resources/docs/
+notes: >-
+  Authorization requires both Api-Key-Id and Api-Key-Secret headers on every
+  request. Keys are issued by 99designs after a partner requests API access at
+  https://99designs.com/api. The legacy 99designs Tasks API used HTTP Basic Auth.
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: ApiKeyId
+  type: apiKey
+  in: header
+  parameter: Api-Key-Id
+  sources:
+  - openapi/99designs-openapi.yml
+- name: ApiKeySecret
+  type: apiKey
+  in: header
+  parameter: Api-Key-Secret
+  sources:
+  - openapi/99designs-openapi.yml
