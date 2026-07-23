@@ -1,0 +1,130 @@
+openapi: 3.0.3
+info:
+  title: 99designs Briefs API
+  description: 'The 99designs API lets platforms and partners embed a fully-managed creative marketplace: search and match designers, collect design briefs, place orders against 99designs products, and generate partner coupons. Authentication uses a pair of API key headers (Api-Key-Id and Api-Key-Secret) issued by 99designs after a partner requests access.'
+  version: v1
+  contact:
+    name: 99designs API
+    url: https://99designs.com/api
+  x-apis-json-source: https://api.99designs.com/resources/docs/
+  x-provenance:
+    generated: '2026-07-17'
+    method: searched
+    source: https://api.99designs.com/resources/docs/
+servers:
+- url: https://api.99designs.com/resources/v1
+  description: Production
+security:
+- ApiKeyId: []
+  ApiKeySecret: []
+tags:
+- name: Briefs
+  description: Collect design briefs.
+paths:
+  /briefs:
+    post:
+      operationId: createBrief
+      tags:
+      - Briefs
+      summary: Create a brief
+      description: Submit a design brief describing the project a customer needs.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BriefRequest'
+      responses:
+        '201':
+          description: Brief created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BriefCreated'
+        '400':
+          $ref: '#/components/responses/ValidationError'
+components:
+  responses:
+    ValidationError:
+      description: Validation error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+  schemas:
+    BriefCreated:
+      type: object
+      properties:
+        id:
+          type: string
+        briefUrl:
+          type: string
+    BriefRequest:
+      type: object
+      properties:
+        category:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        profileApproval:
+          type: boolean
+        industry:
+          type: string
+        inspirationUrls:
+          type: array
+          items:
+            type: string
+        budget:
+          type: object
+          properties:
+            value:
+              type: integer
+              description: Amount in cents
+            currency:
+              type: string
+        other:
+          type: string
+        timeframe:
+          type: object
+          properties:
+            value:
+              type: string
+            startDate:
+              type: string
+              format: date-time
+            endDate:
+              type: string
+              format: date-time
+        urls:
+          type: array
+          items:
+            type: string
+        usage:
+          type: string
+        language:
+          type: string
+    ErrorEnvelope:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              path:
+                type: string
+              message:
+                type: string
+        message:
+          type: string
+  securitySchemes:
+    ApiKeyId:
+      type: apiKey
+      in: header
+      name: Api-Key-Id
+    ApiKeySecret:
+      type: apiKey
+      in: header
+      name: Api-Key-Secret

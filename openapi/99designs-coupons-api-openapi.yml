@@ -1,0 +1,67 @@
+openapi: 3.0.3
+info:
+  title: 99designs Briefs Coupons API
+  description: 'The 99designs API lets platforms and partners embed a fully-managed creative marketplace: search and match designers, collect design briefs, place orders against 99designs products, and generate partner coupons. Authentication uses a pair of API key headers (Api-Key-Id and Api-Key-Secret) issued by 99designs after a partner requests access.'
+  version: v1
+  contact:
+    name: 99designs API
+    url: https://99designs.com/api
+  x-apis-json-source: https://api.99designs.com/resources/docs/
+  x-provenance:
+    generated: '2026-07-17'
+    method: searched
+    source: https://api.99designs.com/resources/docs/
+servers:
+- url: https://api.99designs.com/resources/v1
+  description: Production
+security:
+- ApiKeyId: []
+  ApiKeySecret: []
+tags:
+- name: Coupons
+  description: Generate partner coupon tokens.
+paths:
+  /coupons:
+    post:
+      operationId: createCoupon
+      tags:
+      - Coupons
+      summary: Generate a partner coupon
+      description: Generate a partner coupon token via the REST API.
+      responses:
+        '201':
+          description: Coupon created
+        '400':
+          $ref: '#/components/responses/ValidationError'
+components:
+  responses:
+    ValidationError:
+      description: Validation error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+  schemas:
+    ErrorEnvelope:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              path:
+                type: string
+              message:
+                type: string
+        message:
+          type: string
+  securitySchemes:
+    ApiKeyId:
+      type: apiKey
+      in: header
+      name: Api-Key-Id
+    ApiKeySecret:
+      type: apiKey
+      in: header
+      name: Api-Key-Secret

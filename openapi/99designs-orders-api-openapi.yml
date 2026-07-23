@@ -1,0 +1,122 @@
+openapi: 3.0.3
+info:
+  title: 99designs Briefs Orders API
+  description: 'The 99designs API lets platforms and partners embed a fully-managed creative marketplace: search and match designers, collect design briefs, place orders against 99designs products, and generate partner coupons. Authentication uses a pair of API key headers (Api-Key-Id and Api-Key-Secret) issued by 99designs after a partner requests access.'
+  version: v1
+  contact:
+    name: 99designs API
+    url: https://99designs.com/api
+  x-apis-json-source: https://api.99designs.com/resources/docs/
+  x-provenance:
+    generated: '2026-07-17'
+    method: searched
+    source: https://api.99designs.com/resources/docs/
+servers:
+- url: https://api.99designs.com/resources/v1
+  description: Production
+security:
+- ApiKeyId: []
+  ApiKeySecret: []
+tags:
+- name: Orders
+  description: Place orders against 99designs products.
+paths:
+  /orders:
+    post:
+      operationId: createOrder
+      tags:
+      - Orders
+      summary: Create an order
+      description: Place an order against a 99designs product version.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderRequest'
+      responses:
+        '201':
+          description: Order created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderCreated'
+        '400':
+          $ref: '#/components/responses/ValidationError'
+components:
+  responses:
+    ValidationError:
+      description: Validation error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+  schemas:
+    OrderRequest:
+      type: object
+      required:
+      - productId
+      - brief
+      properties:
+        productId:
+          type: string
+          description: Product name and version, e.g. logo-essential-v1
+        brief:
+          type: object
+          properties:
+            title:
+              type: string
+            description:
+              type: string
+            category:
+              type: string
+            timeline:
+              type: string
+            approval:
+              type: string
+            businessName:
+              type: string
+    ErrorEnvelope:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              path:
+                type: string
+              message:
+                type: string
+        message:
+          type: string
+    OrderCreated:
+      type: object
+      properties:
+        orderItems:
+          type: array
+          items:
+            type: object
+            properties:
+              briefId:
+                type: string
+              returnUrls:
+                type: object
+                properties:
+                  briefStart:
+                    type: string
+                  briefEnd:
+                    type: string
+                  review:
+                    type: string
+                  postReview:
+                    type: string
+  securitySchemes:
+    ApiKeyId:
+      type: apiKey
+      in: header
+      name: Api-Key-Id
+    ApiKeySecret:
+      type: apiKey
+      in: header
+      name: Api-Key-Secret

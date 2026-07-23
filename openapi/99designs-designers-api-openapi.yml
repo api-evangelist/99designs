@@ -1,0 +1,310 @@
+openapi: 3.0.3
+info:
+  title: 99designs Briefs Designers API
+  description: 'The 99designs API lets platforms and partners embed a fully-managed creative marketplace: search and match designers, collect design briefs, place orders against 99designs products, and generate partner coupons. Authentication uses a pair of API key headers (Api-Key-Id and Api-Key-Secret) issued by 99designs after a partner requests access.'
+  version: v1
+  contact:
+    name: 99designs API
+    url: https://99designs.com/api
+  x-apis-json-source: https://api.99designs.com/resources/docs/
+  x-provenance:
+    generated: '2026-07-17'
+    method: searched
+    source: https://api.99designs.com/resources/docs/
+servers:
+- url: https://api.99designs.com/resources/v1
+  description: Production
+security:
+- ApiKeyId: []
+  ApiKeySecret: []
+tags:
+- name: Designers
+  description: Search and retrieve designers, reviews, and portfolios.
+paths:
+  /designers:
+    post:
+      operationId: searchDesigners
+      tags:
+      - Designers
+      summary: Search designers
+      description: Search the designer network matching the supplied criteria.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DesignerSearchRequest'
+      responses:
+        '200':
+          description: Matching designers
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DesignerSearchResults'
+        '400':
+          $ref: '#/components/responses/ValidationError'
+  /designers/{designerId}:
+    get:
+      operationId: getDesigner
+      tags:
+      - Designers
+      summary: Retrieve a designer
+      description: Retrieve a single designer profile by ID.
+      parameters:
+      - $ref: '#/components/parameters/DesignerId'
+      responses:
+        '200':
+          description: Designer profile
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Designer'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /designers/{designerId}/reviews:
+    get:
+      operationId: getDesignerReviews
+      tags:
+      - Designers
+      summary: Retrieve designer reviews
+      description: Fetch customer reviews for a designer.
+      parameters:
+      - $ref: '#/components/parameters/DesignerId'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/PageSize'
+      responses:
+        '200':
+          description: Designer reviews
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReviewResults'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /designers/{designerId}/designs:
+    get:
+      operationId: getDesignerDesigns
+      tags:
+      - Designers
+      summary: Retrieve designer portfolio
+      description: Get portfolio designs for a designer.
+      parameters:
+      - $ref: '#/components/parameters/DesignerId'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/PageSize'
+      - name: category
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: Portfolio designs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DesignResults'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  schemas:
+    Review:
+      type: object
+      properties:
+        rating:
+          type: number
+        message:
+          type: string
+        displayName:
+          type: string
+    Designer:
+      type: object
+      properties:
+        id:
+          type: integer
+        coverImageUrl:
+          type: string
+        biography:
+          type: string
+        avatarUrl:
+          type: string
+        displayName:
+          type: string
+        lastSeenAt:
+          type: string
+        designs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Design'
+        designerLevel:
+          type: string
+        expertise:
+          type: string
+        expertiseCategories:
+          type: array
+          items:
+            type: string
+        review:
+          type: object
+        reviews:
+          type: array
+          items:
+            $ref: '#/components/schemas/Review'
+        country:
+          type: string
+        repeatCount:
+          type: integer
+        responsivenessScore:
+          type: number
+        completedProjectsCount:
+          type: integer
+        isAvailable:
+          type: boolean
+        workPreferences:
+          type: object
+        certifications:
+          type: array
+          items:
+            type: string
+        isBoosted:
+          type: boolean
+    DesignerSearchRequest:
+      type: object
+      properties:
+        certifications:
+          type: array
+          items:
+            type: string
+        category:
+          type: array
+          items:
+            type: string
+        industry:
+          type: array
+          items:
+            type: string
+        language:
+          type: array
+          items:
+            type: string
+        designerLevel:
+          type: array
+          items:
+            type: string
+        lastActivity:
+          type: string
+        designLimit:
+          type: integer
+        keywordQuery:
+          type: string
+        pageSize:
+          type: integer
+        page:
+          type: integer
+        country:
+          type: array
+          items:
+            type: string
+            description: ISO alpha-2 country code
+    Design:
+      type: object
+      properties:
+        id:
+          type: integer
+        description:
+          type: string
+        imageUrl:
+          type: string
+        title:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+    DesignerSearchResults:
+      type: object
+      properties:
+        totalPages:
+          type: integer
+        totalResults:
+          type: integer
+        designers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Designer'
+    ErrorEnvelope:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              path:
+                type: string
+              message:
+                type: string
+        message:
+          type: string
+    DesignResults:
+      type: object
+      properties:
+        totalPages:
+          type: integer
+        totalResults:
+          type: integer
+        designs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Design'
+    ReviewResults:
+      type: object
+      properties:
+        totalPages:
+          type: integer
+        totalResults:
+          type: integer
+        reviews:
+          type: array
+          items:
+            $ref: '#/components/schemas/Review'
+  parameters:
+    DesignerId:
+      name: designerId
+      in: path
+      required: true
+      schema:
+        type: integer
+    PageSize:
+      name: pageSize
+      in: query
+      schema:
+        type: integer
+    Page:
+      name: page
+      in: query
+      schema:
+        type: integer
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+    ValidationError:
+      description: Validation error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+  securitySchemes:
+    ApiKeyId:
+      type: apiKey
+      in: header
+      name: Api-Key-Id
+    ApiKeySecret:
+      type: apiKey
+      in: header
+      name: Api-Key-Secret
