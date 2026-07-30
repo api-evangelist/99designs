@@ -1,11 +1,33 @@
 aid: 99designs
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/99designs.png
 name: 99designs
-description: '99designs is a company surfaced as a portfolio company of accel and added to the API Evangelist
-  network as a stub for enrichment. Sector: media. This profile is a lead awaiting the enrichment pipeline.'
+description: >-
+  99designs by Vista is a global creative marketplace connecting clients with a
+  worldwide network of freelance designers for logos, brand identity, web and
+  packaging design, illustration, and more, using both a design-contest model
+  and one-to-one projects. Its partner API (base https://api.99designs.com/resources/v1)
+  lets platforms embed a fully-managed creative marketplace: search and match
+  designers, retrieve designer profiles, reviews and portfolios, collect design
+  briefs, place orders against 99designs products, and generate partner coupons.
+  Authentication uses a pair of API key headers (Api-Key-Id and Api-Key-Secret)
+  issued to partners on request. Founded in 2008 as a SitePoint spin-off and
+  acquired by Cimpress/Vista in 2020.
 url: https://raw.githubusercontent.com/api-evangelist/99designs/refs/heads/main/apis.yml
 x-type: company
 x-source: accel-portfolio
-x-tier: stub
+x-tier: enriched
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
@@ -13,12 +35,133 @@ modified: '2026-07-17'
 tags:
 - Company
 - Media
-apis: []
+- Design
+- Marketplace
+- Creative
+- Freelance
+- Graphic Design
+- Branding
+apis:
+- aid: 99designs:99designs-briefs-api
+  name: 99designs Briefs API
+  description: Collect design briefs.
+  humanURL: https://api.99designs.com/resources/docs/
+  baseURL: https://api.99designs.com/resources/v1
+  tags:
+  - Briefs
+  properties:
+  - type: OpenAPI
+    url: openapi/99designs-briefs-api-openapi.yml
+  - type: Documentation
+    url: https://api.99designs.com/resources/docs/
+  - type: APIReference
+    url: https://api.99designs.com/resources/docs/
+- aid: 99designs:99designs-coupons-api
+  name: 99designs Coupons API
+  description: Generate partner coupon tokens.
+  humanURL: https://api.99designs.com/resources/docs/
+  baseURL: https://api.99designs.com/resources/v1
+  tags:
+  - Coupons
+  properties:
+  - type: OpenAPI
+    url: openapi/99designs-coupons-api-openapi.yml
+  - type: Documentation
+    url: https://api.99designs.com/resources/docs/
+  - type: APIReference
+    url: https://api.99designs.com/resources/docs/
+- aid: 99designs:99designs-designers-api
+  name: 99designs Designers API
+  description: Search and retrieve designers, reviews, and portfolios.
+  humanURL: https://api.99designs.com/resources/docs/
+  baseURL: https://api.99designs.com/resources/v1
+  tags:
+  - Designers
+  properties:
+  - type: OpenAPI
+    url: openapi/99designs-designers-api-openapi.yml
+  - type: Documentation
+    url: https://api.99designs.com/resources/docs/
+  - type: APIReference
+    url: https://api.99designs.com/resources/docs/
+- aid: 99designs:99designs-orders-api
+  name: 99designs Orders API
+  description: Place orders against 99designs products.
+  humanURL: https://api.99designs.com/resources/docs/
+  baseURL: https://api.99designs.com/resources/v1
+  tags:
+  - Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/99designs-orders-api-openapi.yml
+  - type: Documentation
+    url: https://api.99designs.com/resources/docs/
+  - type: APIReference
+    url: https://api.99designs.com/resources/docs/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: OpenAPI
+  url: openapi/99designs-openapi.yml
+- type: Overlay
+  url: overlays/99designs-overlay.yaml
+- type: Authentication
+  url: authentication/99designs-authentication.yml
+- type: Conventions
+  url: conventions/99designs-conventions.yml
+- type: ErrorCatalog
+  url: errors/99designs-problem-types.yml
+- type: DataModel
+  url: data-model/99designs-data-model.yml
+- type: Conformance
+  url: conformance/99designs-conformance.yml
+- type: Lifecycle
+  url: lifecycle/99designs-lifecycle.yml
+- type: MCPServer
+  url: mcp/99designs-mcp.yml
+- type: LLMsTxt
+  url: llms/99designs-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+- type: AgenticAccess
+  url: agentic-access/99designs-agentic-access.yml
+- type: WellKnown
+  url: well-known/99designs-well-known.yml
+- type: SecurityTxt
+  url: well-known/99designs-security.txt
+- type: VulnerabilityDisclosure
+  url: security/99designs-vulnerability-disclosure.yml
+- type: Security
+  url: https://99designs.com/.well-known/security.txt
+- type: DomainSecurity
+  url: security/99designs-domain-security.yml
+- type: DeveloperPortal
+  url: https://99designs.com/api
+- type: Documentation
+  url: https://api.99designs.com/resources/docs/
+- type: APIReference
+  url: https://api.99designs.com/resources/docs/
+- type: SignUp
+  url: https://99designs.com/api
+- type: GitHubOrganization
+  url: https://github.com/99designs
+- type: Pricing
+  url: https://99designs.com/pricing
+- type: Blog
+  url: https://99designs.com/blog
+- type: Support
+  url: https://support.99designs.com
+- type: TermsOfService
+  url: https://99designs.com/legal/terms-and-conditions
+- type: PrivacyPolicy
+  url: https://99designs.com/legal/privacy
 - type: Website
-  url: http://www.99designs.com
+  url: https://www.99designs.com
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
