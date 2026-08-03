@@ -1,0 +1,21 @@
+generated: '2026-07-17'
+method: searched
+source: live probes of 99designs.com + api.99designs.com
+hosts:
+  - host: https://99designs.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        file: 99designs-security.txt
+  - host: https://api.99designs.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404

@@ -1,0 +1,30 @@
+generated: '2026-07-17'
+method: derived
+source: openapi/99designs-openapi.yml
+format: custom-json
+envelope:
+  description: >-
+    Errors are returned as JSON with either an errors[] array (each entry has a
+    path and message) or a top-level message string. Not RFC 9457 problem+json.
+  fields:
+    - errors[].path
+    - errors[].message
+    - message
+problems:
+  - status: 400
+    title: Validation error
+    description: Request body failed validation against the endpoint or product schema.
+    envelope_field: errors
+    source_operations:
+      - openapi/99designs-openapi.yml#createBrief
+      - openapi/99designs-openapi.yml#searchDesigners
+      - openapi/99designs-openapi.yml#createOrder
+      - openapi/99designs-openapi.yml#createCoupon
+  - status: 404
+    title: Resource not found
+    description: The requested designer (or sub-resource) does not exist.
+    envelope_field: message
+    source_operations:
+      - openapi/99designs-openapi.yml#getDesigner
+      - openapi/99designs-openapi.yml#getDesignerReviews
+      - openapi/99designs-openapi.yml#getDesignerDesigns

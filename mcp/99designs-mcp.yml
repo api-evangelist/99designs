@@ -1,0 +1,32 @@
+generated: '2026-07-17'
+method: derived
+status: candidate
+source: openapi/99designs-openapi.yml
+note: >-
+  No official hosted/remote MCP server was found for 99designs. This is a
+  candidate tool list derived from the documented OpenAPI operations.
+server:
+  name: 99designs
+  transport: stdio
+tools:
+  - name: create_brief
+    description: Submit a design brief.
+    source_operation: openapi/99designs-openapi.yml#createBrief
+  - name: search_designers
+    description: Search the designer network by criteria.
+    source_operation: openapi/99designs-openapi.yml#searchDesigners
+  - name: get_designer
+    description: Retrieve a designer profile by ID.
+    source_operation: openapi/99designs-openapi.yml#getDesigner
+  - name: get_designer_reviews
+    description: Fetch customer reviews for a designer.
+    source_operation: openapi/99designs-openapi.yml#getDesignerReviews
+  - name: get_designer_designs
+    description: Get a designer's portfolio designs.
+    source_operation: openapi/99designs-openapi.yml#getDesignerDesigns
+  - name: create_order
+    description: Place an order against a 99designs product.
+    source_operation: openapi/99designs-openapi.yml#createOrder
+  - name: create_coupon
+    description: Generate a partner coupon token.
+    source_operation: openapi/99designs-openapi.yml#createCoupon

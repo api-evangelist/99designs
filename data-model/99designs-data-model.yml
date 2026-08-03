@@ -1,0 +1,30 @@
+generated: '2026-07-17'
+method: derived
+source: openapi/99designs-openapi.yml
+entities:
+  - name: Designer
+    id_field: id
+    key_fields: [id, displayName, designerLevel, country]
+  - name: Design
+    id_field: id
+    key_fields: [id, title, imageUrl, tags]
+  - name: Review
+    key_fields: [rating, message, displayName]
+  - name: Brief
+    id_field: id
+    key_fields: [id, briefUrl, category, title]
+  - name: Order
+    key_fields: [orderItems, briefId, returnUrls]
+relationships:
+  - from: Designer
+    to: Design
+    type: has_many
+    via: designs
+  - from: Designer
+    to: Review
+    type: has_many
+    via: reviews
+  - from: Order
+    to: Brief
+    type: has_many
+    via: orderItems.briefId

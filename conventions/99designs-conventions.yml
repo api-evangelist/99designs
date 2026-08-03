@@ -1,0 +1,45 @@
+generated: '2026-07-17'
+method: searched
+source: https://api.99designs.com/resources/docs/
+summary: >-
+  Cross-cutting request/response conventions for the 99designs API, derived from
+  the published API reference and OpenAPI. Key-pair header auth, offset/page
+  pagination, and a simple errors[] envelope. No documented idempotency key or
+  rate-limit signaling.
+authentication:
+  style: api-key-pair
+  headers:
+    - Api-Key-Id
+    - Api-Key-Secret
+  note: Both headers must be forwarded on every authenticated request.
+  ref: authentication/99designs-authentication.yml
+pagination:
+  style: offset
+  request_params:
+    - page
+    - pageSize
+  response_fields:
+    - totalPages
+    - totalResults
+  note: List endpoints (designer search, reviews, portfolio designs) return totalPages and totalResults with page/pageSize controls.
+idempotency:
+  supported: false
+  note: No idempotency-key header or parameter is documented for POST briefs/orders/coupons.
+versioning:
+  style: uri-path
+  current: v1
+  base_path: /resources/v1
+  ref: lifecycle/99designs-lifecycle.yml
+error_envelope:
+  shape: errors-array-or-message
+  fields:
+    - errors[].path
+    - errors[].message
+    - message
+  content_type: application/json
+  ref: errors/99designs-problem-types.yml
+rate_limiting:
+  documented: false
+  note: No rate-limit headers or quotas are published in the API reference.
+request_tracing:
+  documented: false

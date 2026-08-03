@@ -1,0 +1,14 @@
+generated: '2026-07-17'
+method: derived
+source: openapi/99designs-openapi.yml
+versioning:
+  scheme: uri-path
+  current: v1
+  base_path: https://api.99designs.com/resources/v1
+deprecation:
+  policy_url: null
+  sunset_header: false
+sla:
+  url: null
+status_page: null
+deprecated_operations: []
