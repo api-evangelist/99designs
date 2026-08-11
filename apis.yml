@@ -105,7 +105,7 @@ maintainers:
   email: info@apis.io
 common:
 - type: OpenAPI
-  url: openapi/99designs-openapi.yml
+  url: openapi/_original/99designs-openapi.yml
 - type: Overlay
   url: overlays/99designs-overlay.yaml
 - type: Authentication
