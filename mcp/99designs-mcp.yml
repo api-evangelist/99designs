@@ -1,32 +1,51 @@
-generated: '2026-07-17'
+generated: '2026-08-13'
 method: derived
 status: candidate
-source: openapi/99designs-openapi.yml
+source: openapi/_original/99designs-openapi.yml
 note: >-
-  No official hosted/remote MCP server was found for 99designs. This is a
-  candidate tool list derived from the documented OpenAPI operations.
+  No official hosted/remote MCP server was found for 99designs — no MCP endpoint is
+  named in the API reference, on https://99designs.com/api, in the 99designs GitHub
+  organization, or in any package registry. This is a candidate tool list derived from
+  the documented OpenAPI operations; nothing here is served by the provider.
 server:
   name: 99designs
   transport: stdio
 tools:
-  - name: create_brief
-    description: Submit a design brief.
-    source_operation: openapi/99designs-openapi.yml#createBrief
-  - name: search_designers
-    description: Search the designer network by criteria.
-    source_operation: openapi/99designs-openapi.yml#searchDesigners
-  - name: get_designer
-    description: Retrieve a designer profile by ID.
-    source_operation: openapi/99designs-openapi.yml#getDesigner
-  - name: get_designer_reviews
-    description: Fetch customer reviews for a designer.
-    source_operation: openapi/99designs-openapi.yml#getDesignerReviews
-  - name: get_designer_designs
-    description: Get a designer's portfolio designs.
-    source_operation: openapi/99designs-openapi.yml#getDesignerDesigns
-  - name: create_order
-    description: Place an order against a 99designs product.
-    source_operation: openapi/99designs-openapi.yml#createOrder
-  - name: create_coupon
-    description: Generate a partner coupon token.
-    source_operation: openapi/99designs-openapi.yml#createCoupon
+- name: create_brief
+  description: Submit a design brief.
+  source_operation: openapi/99designs-openapi.yml#createBrief
+- name: search_designers
+  description: Search the designer network by criteria.
+  source_operation: openapi/99designs-openapi.yml#searchDesigners
+- name: get_designer
+  description: Retrieve a designer profile by ID.
+  source_operation: openapi/99designs-openapi.yml#getDesigner
+- name: get_designer_reviews
+  description: Fetch customer reviews for a designer.
+  source_operation: openapi/99designs-openapi.yml#getDesignerReviews
+- name: get_designer_designs
+  description: Get a designer's portfolio designs.
+  source_operation: openapi/99designs-openapi.yml#getDesignerDesigns
+- name: list_products
+  description: List the 99designs products the calling partner has available for sale.
+  source_operation: openapi/99designs-products-api-openapi.yml#listProducts
+- name: create_order
+  description: Place an order against a 99designs product.
+  source_operation: openapi/99designs-openapi.yml#createOrder
+- name: create_coupon
+  description: Generate a partner coupon token.
+  source_operation: openapi/99designs-openapi.yml#createCoupon
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: api-key
+  verified: searched
+  tools: 8
+  checked: '2026-08-13'
+  source: >-
+    Searched the API reference, https://99designs.com/api, the 99designs GitHub
+    organization (all public repos listed 2026-08-13) and npm/PyPI/RubyGems/Packagist
+    for an MCP server. None exists — remote or stdio. Candidate tools above are
+    derived from the OpenAPI; the auth model shown is the API's own key-pair headers.

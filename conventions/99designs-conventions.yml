@@ -1,4 +1,4 @@
-generated: '2026-07-17'
+generated: '2026-08-13'
 method: searched
 source: https://api.99designs.com/resources/docs/
 summary: >-
@@ -40,6 +40,16 @@ error_envelope:
   ref: errors/99designs-problem-types.yml
 rate_limiting:
   documented: false
-  note: No rate-limit headers or quotas are published in the API reference.
+  enforced: true
+  signaling: x-ratelimit
+  headers:
+    - X-RateLimit-Limit
+    - X-RateLimit-Remaining
+    - X-RateLimit-Reset
+  observed_limit: 100 requests per 60s window, reset aligned to the wall-clock minute
+  note: >-
+    Nothing about rate limiting appears in the API reference, but every live response
+    from api.99designs.com carries the X-RateLimit-* triple. Probed 2026-08-13.
+  ref: rate-limits/99designs-rate-limits.yml
 request_tracing:
   documented: false

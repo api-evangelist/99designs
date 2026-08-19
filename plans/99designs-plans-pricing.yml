@@ -1,0 +1,74 @@
+generated: '2026-08-13'
+method: searched
+source: https://99designs.com/api
+docs: https://99designs.com/pricing
+plan_count: 0
+note: >-
+  99designs publishes NO plans, tiers, quotas or price list for the partner API. API
+  access is sales-gated: https://99designs.com/api offers only a "Talk to us!" contact
+  form and a phone number (1-800-513-1678), and the API reference opens with "you'll
+  need to request an API key so we can understand what you want to build". Commercial
+  terms are negotiated per partner and are not published. The marketplace package
+  pricing below is what an end customer pays 99designs for design work — it is product
+  pricing, not API pricing, and is recorded here for context only.
+api_access:
+  model: partner-negotiated
+  self_serve: false
+  request_url: https://99designs.com/api
+  contact_phone: '1-800-513-1678'
+  evidence:
+  - url: https://99designs.com/api
+    status: 200
+    finding: contact form only, no pricing
+  - url: https://99designs.com/pricing
+    status: 200
+    finding: marketplace design packages only, no API or partner pricing
+marketplace_product_pricing:
+  note: >-
+    Consumer-facing contest packages published on https://99designs.com/pricing on
+    2026-08-13 for the logo design category (the page re-prices per design category).
+    The four packages are unnamed on the page — they are identified by price only, so
+    no tier names are recorded here. One-time project fees, not subscriptions, and not
+    tied to API usage. Prices exclude sales tax.
+  category: logo design
+  currency: USD
+  billing: one-time
+  packages:
+  - name: null
+    price: 249
+    design_concepts: 30
+    designer_level: Mid & Top Level designers only
+    includes:
+    - 100% money-back guarantee
+    - Full copyright ownership
+  - name: null
+    price: 399
+    design_concepts: 60
+    designer_level: Mid & Top Level designers only
+    includes:
+    - 100% money-back guarantee
+    - Full copyright ownership
+  - name: null
+    price: 799
+    design_concepts: 90
+    designer_level: Top Level designers only
+    includes:
+    - 100% money-back guarantee
+    - Full copyright ownership
+    - Dedicated manager
+    - Prioritized support
+  - name: null
+    price: 1050
+    design_concepts: 60
+    designer_level: Top Level designers only
+    includes:
+    - 100% money-back guarantee
+    - Full copyright ownership
+    - Dedicated manager
+    - Prioritized support
+  - name: 99designs Pro
+    price: null
+    pricing: contact us for a quote
+    note: >-
+      Agency tier — "exclusive on-boarding, designer recruiting and custom privacy
+      tools". No published price.

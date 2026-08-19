@@ -1,0 +1,120 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "99designs Briefs Designers API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Api-Key-Id",
+      "value": "{{Api-Key-Id}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Designers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search designers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.99designs.com/resources/v1/designers",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search the designer network matching the supplied criteria."
+        },
+        {
+          "info": {
+            "name": "Retrieve a designer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.99designs.com/resources/v1/designers/:designerId",
+            "params": [
+              {
+                "name": "designerId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a single designer profile by ID."
+        },
+        {
+          "info": {
+            "name": "Retrieve designer reviews",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.99designs.com/resources/v1/designers/:designerId/reviews",
+            "params": [
+              {
+                "name": "designerId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Fetch customer reviews for a designer."
+        },
+        {
+          "info": {
+            "name": "Retrieve designer portfolio",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.99designs.com/resources/v1/designers/:designerId/designs",
+            "params": [
+              {
+                "name": "designerId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "category",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get portfolio designs for a designer."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

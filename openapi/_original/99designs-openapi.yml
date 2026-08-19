@@ -31,6 +31,8 @@ tags:
     description: Place orders against 99designs products.
   - name: Coupons
     description: Generate partner coupon tokens.
+  - name: Products
+    description: List the 99designs products available to the calling partner.
 paths:
   /briefs:
     post:
@@ -156,17 +158,47 @@ paths:
                 $ref: '#/components/schemas/OrderCreated'
         '400':
           $ref: '#/components/responses/ValidationError'
+  /products:
+    get:
+      operationId: listProducts
+      tags: [Products]
+      summary: Your products
+      description: >-
+        Given your API credentials, this endpoint returns all the products you have
+        available for sale. This includes details about the product itself, and a JSON
+        Schema representation of the brief clients fill in to purchase this product.
+      responses:
+        '200':
+          description: Products
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductResults'
+        '400':
+          $ref: '#/components/responses/BadRequest'
   /coupons:
     post:
       operationId: createCoupon
       tags: [Coupons]
       summary: Generate a partner coupon
-      description: Generate a partner coupon token via the REST API.
+      description: >-
+        Returns a signed partner coupon that can be passed back to 99designs via URL
+        parameter, and a URL based on the campaign ID that can be used directly.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CouponRequest'
       responses:
-        '201':
-          description: Coupon created
+        '200':
+          description: Generated coupon
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CouponCreated'
         '400':
-          $ref: '#/components/responses/ValidationError'
+          $ref: '#/components/responses/BadRequest'
 components:
   securitySchemes:
     ApiKeyId:
@@ -203,6 +235,12 @@ components:
             $ref: '#/components/schemas/ErrorEnvelope'
     NotFound:
       description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+    BadRequest:
+      description: Bad request
       content:
         application/json:
           schema:
@@ -464,3 +502,70 @@ components:
                     type: string
                   postReview:
                     type: string
+    ProductResults:
+      type: object
+      properties:
+        products:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
+    Product:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Product name and version, e.g. website-revamp-v1
+        title:
+          type: string
+        description:
+          type: string
+        price:
+          type: integer
+          description: Price in cents
+        details:
+          $ref: '#/components/schemas/ProductDetail'
+        additionalDetails:
+          $ref: '#/components/schemas/ProductDetail'
+    ProductDetail:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+    CouponRequest:
+      type: object
+      properties:
+        aud:
+          type: string
+          description: >-
+            Name of the campaign the token relates to. This will be provided by
+            99designs for your specific campaign.
+        sub:
+          type: string
+          description: >-
+            Identify the user for which this token relates to. One or both of sub or
+            jti are required.
+        jti:
+          type: string
+          description: >-
+            Identify a specific token, unique per token. One or both of sub or jti are
+            required.
+        exp:
+          type: integer
+          description: UNIX timestamp after which the coupon can no longer be used.
+        nbf:
+          type: integer
+          description: UNIX timestamp before which the coupon can not be used.
+    CouponCreated:
+      type: object
+      properties:
+        jwt:
+          type: string
+          description: Signed partner coupon token.
+        url:
+          type: string
+          description: Brief-creation URL carrying the coupon as the pc query parameter.
+        couponId:
+          type: string
+          format: uuid

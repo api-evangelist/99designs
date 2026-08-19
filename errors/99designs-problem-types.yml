@@ -1,6 +1,6 @@
-generated: '2026-07-17'
+generated: '2026-08-13'
 method: derived
-source: openapi/99designs-openapi.yml
+source: openapi/_original/99designs-openapi.yml
 format: custom-json
 envelope:
   description: >-
@@ -20,6 +20,29 @@ problems:
       - openapi/99designs-openapi.yml#searchDesigners
       - openapi/99designs-openapi.yml#createOrder
       - openapi/99designs-openapi.yml#createCoupon
+  - status: 400
+    title: Bad request
+    description: >-
+      Generic bad-request failure returned by the products and coupons endpoints with a
+      single top-level message string rather than an errors[] array.
+    envelope_field: message
+    example: '{"message": "An error has occurred"}'
+    source_operations:
+      - openapi/99designs-products-api-openapi.yml#listProducts
+      - openapi/99designs-coupons-api-openapi.yml#createCoupon
+      - openapi/99designs-designers-api-openapi.yml#searchDesigners
+  - status: 401
+    title: Unauthorized
+    description: >-
+      Returned when the Api-Key-Id / Api-Key-Secret header pair is missing or invalid.
+      Not documented in the API reference; observed on live unauthenticated requests
+      2026-08-13.
+    envelope_field: message
+    example: '{"message": "Unauthorized"}'
+    method: probed
+    source_operations:
+      - openapi/99designs-products-api-openapi.yml#listProducts
+      - openapi/99designs-designers-api-openapi.yml#getDesigner
   - status: 404
     title: Resource not found
     description: The requested designer (or sub-resource) does not exist.

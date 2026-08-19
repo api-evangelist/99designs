@@ -1,0 +1,199 @@
+{
+  "item": [
+    {
+      "id": "c9c460d5-0521-4d0b-8417-b4df04fe7773",
+      "name": "Coupons",
+      "description": {
+        "content": "Generate partner coupon tokens.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "42a438b5-f00d-44c0-b043-254aa1009699",
+          "name": "Generate a partner coupon",
+          "request": {
+            "name": "Generate a partner coupon",
+            "description": {
+              "content": "Returns a signed partner coupon that can be passed back to 99designs via URL parameter, and a URL based on the campaign ID that can be used directly.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "coupons"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"aud\": \"<string>\",\n  \"sub\": \"<string>\",\n  \"jti\": \"<string>\",\n  \"exp\": \"<integer>\",\n  \"nbf\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bfbfacd8-daf3-4093-9318-4411ff6a64e0",
+              "name": "Generated coupon",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "coupons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Api-Key-Id",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"aud\": \"<string>\",\n  \"sub\": \"<string>\",\n  \"jti\": \"<string>\",\n  \"exp\": \"<integer>\",\n  \"nbf\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"jwt\": \"string\",\n  \"url\": \"string\",\n  \"couponId\": \"91c6e0d9-dfb5-5aea-8bec-5215265509ec\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e19288fd-93a9-4a70-bd3e-ebbbd885dddb",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "coupons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Api-Key-Id",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"aud\": \"<string>\",\n  \"sub\": \"<string>\",\n  \"jti\": \"<string>\",\n  \"exp\": \"<integer>\",\n  \"nbf\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\"\n    }\n  ],\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.99designs.com/resources/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Api-Key-Id"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6d91c8c2-54f8-4134-9303-ce7ddd6d7f0a",
+    "name": "99designs Coupons API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The 99designs API lets platforms and partners embed a fully-managed creative marketplace: search and match designers, collect design briefs, place orders against 99designs products, and generate partner coupons. Authentication uses a pair of API key headers (Api-Key-Id and Api-Key-Secret) issued by 99designs after a partner requests access.\n\nContact Support:\n Name: 99designs API",
+      "type": "text/plain"
+    }
+  }
+}

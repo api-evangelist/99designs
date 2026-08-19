@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "99designs Briefs API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Api-Key-Id",
+      "value": "{{Api-Key-Id}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Briefs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a brief",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.99designs.com/resources/v1/briefs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit a design brief describing the project a customer needs."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

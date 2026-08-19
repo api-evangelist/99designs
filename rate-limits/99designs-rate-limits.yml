@@ -1,0 +1,53 @@
+generated: '2026-08-13'
+method: probed
+source: live unauthenticated responses from https://api.99designs.com/resources/v1/*
+docs: https://api.99designs.com/resources/docs/
+limit_count: 1
+note: >-
+  99designs DOCUMENTS no rate limits — the complete API reference (Getting started,
+  Authorization, Briefs, Designers, Coupons, Products, Orders) was read in full on
+  2026-08-13 and contains no quota, throttle, burst, retry or 429 guidance. The limit
+  below was OBSERVED on live unauthenticated responses: every response from
+  api.99designs.com carries X-RateLimit-Limit / X-RateLimit-Remaining /
+  X-RateLimit-Reset, with a limit of 100 and a reset timestamp that lands on the next
+  whole minute. Repeated probing confirmed the counter decrements per request and
+  resets to 100 at the minute boundary, i.e. a 100-request-per-minute window. The
+  status code returned on exhaustion is not stated in the docs and was not induced
+  (deliberately not tested against a production host), so it is recorded as unknown.
+limits:
+- scope: per-client
+  window: 60s
+  limit: 100
+  burst: null
+  applies_to: all api.99designs.com responses observed, authenticated or not
+  method: probed
+  note: >-
+    Window is aligned to the wall-clock minute (X-RateLimit-Reset is the epoch seconds
+    of the next minute boundary), not a rolling window from first request.
+headers:
+  documented: []
+  observed:
+  - name: X-RateLimit-Limit
+    example: '100'
+  - name: X-RateLimit-Remaining
+    example: '97'
+  - name: X-RateLimit-Reset
+    example: '1786620360'
+    format: unix-timestamp (epoch seconds of window reset)
+  retry_after: not observed
+exhaustion_status: unknown
+evidence:
+- url: https://api.99designs.com/resources/docs/
+  status: 200
+  finding: no rate-limit section anywhere in the reference
+- url: https://api.99designs.com/resources/v1/products
+  status: 401
+  finding: 'x-ratelimit-limit: 100, x-ratelimit-remaining: 99, x-ratelimit-reset: 1786620300'
+- url: https://api.99designs.com/resources/v1/designers
+  status: 401
+  finding: same headers; remaining decrements across different paths (shared counter)
+- url: https://api.99designs.com/resources/v1/products
+  status: 401
+  finding: >-
+    probed four times across 11:24:42-11:25:58 UTC; remaining returned to 100 and
+    reset advanced 1786620300 -> 1786620360, a 60-second window

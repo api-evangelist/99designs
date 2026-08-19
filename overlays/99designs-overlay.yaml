@@ -1,12 +1,12 @@
 overlay: 1.0.0
 info:
   title: API Evangelist enhancements for 99designs API
-  version: 1.0.0
-extends: openapi/99designs-openapi.yml
+  version: 1.1.0
+extends: openapi/_original/99designs-openapi.yml
 actions:
   - target: $.info
     update:
-      x-apievangelist-enriched: '2026-07-17'
+      x-apievangelist-enriched: '2026-08-13'
       x-apievangelist-method: searched
       x-apievangelist-source: https://api.99designs.com/resources/docs/
   - target: $.info
@@ -15,3 +15,24 @@ actions:
       x-conventions: conventions/99designs-conventions.yml
       x-error-catalog: errors/99designs-problem-types.yml
       x-data-model: data-model/99designs-data-model.yml
+      x-rate-limits: rate-limits/99designs-rate-limits.yml
+      x-lifecycle: lifecycle/99designs-lifecycle.yml
+      x-agentic-access: agentic-access/99designs-agentic-access.yml
+  - target: $
+    update:
+      x-rate-limit:
+        documented: false
+        enforced: true
+        limit: 100
+        window: 60s
+        headers:
+          - X-RateLimit-Limit
+          - X-RateLimit-Remaining
+          - X-RateLimit-Reset
+        method: probed
+        probed: '2026-08-13'
+  - target: $.paths['/products'].get
+    update:
+      x-apievangelist-note: >-
+        Captured 2026-08-13 from https://api.99designs.com/resources/docs/products/, a
+        separate docs page that the first harvest of this API missed.

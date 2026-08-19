@@ -1,0 +1,105 @@
+openapi: 3.0.3
+info:
+  title: 99designs Products API
+  description: 'The 99designs API lets platforms and partners embed a fully-managed creative marketplace: search and match designers, collect design briefs, place orders against 99designs products, and generate partner coupons. Authentication uses a pair of API key headers (Api-Key-Id and Api-Key-Secret) issued by 99designs after a partner requests access.'
+  version: v1
+  contact:
+    name: 99designs API
+    url: https://99designs.com/api
+  x-apis-json-source: https://api.99designs.com/resources/docs/products/
+  x-provenance:
+    generated: '2026-08-13'
+    method: searched
+    source: https://api.99designs.com/resources/docs/products/
+servers:
+- url: https://api.99designs.com/resources/v1
+  description: Production
+security:
+- ApiKeyId: []
+  ApiKeySecret: []
+tags:
+- name: Products
+  description: List the 99designs products available to the calling partner.
+paths:
+  /products:
+    get:
+      operationId: listProducts
+      tags:
+      - Products
+      summary: Your products
+      description: >-
+        Given your API credentials, this endpoint returns all the products you have
+        available for sale. This includes details about the product itself, and a JSON
+        Schema representation of the brief clients fill in to purchase this product.
+      responses:
+        '200':
+          description: Products
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductResults'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+components:
+  securitySchemes:
+    ApiKeyId:
+      type: apiKey
+      in: header
+      name: Api-Key-Id
+    ApiKeySecret:
+      type: apiKey
+      in: header
+      name: Api-Key-Secret
+  responses:
+    BadRequest:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+  schemas:
+    ErrorEnvelope:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              path:
+                type: string
+              message:
+                type: string
+        message:
+          type: string
+    ProductResults:
+      type: object
+      properties:
+        products:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
+    Product:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Product name and version, e.g. website-revamp-v1
+        title:
+          type: string
+        description:
+          type: string
+        price:
+          type: integer
+          description: Price in cents
+        details:
+          $ref: '#/components/schemas/ProductDetail'
+        additionalDetails:
+          $ref: '#/components/schemas/ProductDetail'
+    ProductDetail:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string

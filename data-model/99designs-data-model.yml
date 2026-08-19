@@ -1,6 +1,6 @@
-generated: '2026-07-17'
+generated: '2026-08-13'
 method: derived
-source: openapi/99designs-openapi.yml
+source: openapi/_original/99designs-openapi.yml
 entities:
   - name: Designer
     id_field: id
@@ -15,6 +15,17 @@ entities:
     key_fields: [id, briefUrl, category, title]
   - name: Order
     key_fields: [orderItems, briefId, returnUrls]
+  - name: Product
+    id_field: id
+    id_form: name-and-version slug, e.g. logo-essential-v1, website-revamp-v1
+    key_fields: [id, title, description, price, details, additionalDetails]
+    note: >-
+      Returned by listProducts and referenced by createOrder as productId. The docs
+      state each product also carries a JSON Schema representation of the brief a
+      client fills in to purchase it, against which order brief data is validated.
+  - name: Coupon
+    id_field: couponId
+    key_fields: [jwt, url, couponId]
 relationships:
   - from: Designer
     to: Design
@@ -28,3 +39,11 @@ relationships:
     to: Brief
     type: has_many
     via: orderItems.briefId
+  - from: Order
+    to: Product
+    type: belongs_to
+    via: productId
+  - from: Product
+    to: Brief
+    type: has_one
+    via: product brief JSON Schema (order brief data is validated against it)

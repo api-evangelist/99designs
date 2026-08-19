@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "99designs Products API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Api-Key-Id",
+      "value": "{{Api-Key-Id}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Products",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Your products",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.99designs.com/resources/v1/products"
+          },
+          "docs": "Given your API credentials, this endpoint returns all the products you have available for sale. This includes details about the product itself, and a JSON Schema representation of the brief clients fill in to purchase this product."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

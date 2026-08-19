@@ -1,14 +1,50 @@
-generated: '2026-07-17'
-method: derived
-source: openapi/99designs-openapi.yml
+generated: '2026-08-13'
+method: searched
+source: https://api.99designs.com/resources/docs/
 versioning:
   scheme: uri-path
   current: v1
+  docs_version_label: v1.0.0
   base_path: https://api.99designs.com/resources/v1
+  note: >-
+    The documentation sidebar carries a single version label, v1.0.0. Product versions
+    are separately encoded in product identifiers passed to the Orders API
+    (productId, e.g. logo-essential-v1, website-revamp-v1) — a product-version contract
+    that is distinct from the API version.
 deprecation:
   policy_url: null
   sunset_header: false
+  note: >-
+    No deprecation or sunset policy is published, and no RFC 8594 Sunset/Deprecation
+    header was observed on live responses. The predecessor 99designs Tasks API was
+    retired without a published notice — its host no longer resolves and its
+    first-party client libraries were last released in 2015 (see packages/).
 sla:
   url: null
-status_page: null
+status_page:
+  url: null
+  checked: '2026-08-13'
+  evidence:
+  - url: https://status.99designs.com
+    status: 0
+    finding: DNS NXDOMAIN — no status page on the conventional subdomain
+  - url: https://api.99designs.com/resources/docs/
+    status: 200
+    finding: no status/uptime link anywhere in the API reference
+changelog:
+  url: null
+  checked: '2026-08-13'
+  evidence:
+  - url: https://api.99designs.com/resources/docs/changelog/
+    status: 404
+  note: >-
+    No dated changelog or release notes are published for the API; the only version
+    signal is the static v1.0.0 label in the docs sidebar.
 deprecated_operations: []
+retired_apis:
+- name: 99designs Tasks API
+  status: retired
+  evidence:
+  - tasks.99designs.com does not resolve (DNS NXDOMAIN, checked 2026-08-13)
+  - github.com/99designs/tasks-api-ruby returns HTTP 404
+  - npm 99designs-tasks and gem 99designs-tasks last published July 2015

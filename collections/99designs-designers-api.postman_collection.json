@@ -1,0 +1,733 @@
+{
+  "item": [
+    {
+      "id": "dab8b0dc-1f12-418b-a76a-40bf743f49a7",
+      "name": "Designers",
+      "description": {
+        "content": "Search and retrieve designers, reviews, and portfolios.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7f142063-58ec-4ac1-8dea-fde223da097a",
+          "name": "Search designers",
+          "request": {
+            "name": "Search designers",
+            "description": {
+              "content": "Search the designer network matching the supplied criteria.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "designers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"certifications\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"category\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"industry\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"language\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"designerLevel\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"lastActivity\": \"<string>\",\n  \"designLimit\": \"<integer>\",\n  \"keywordQuery\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"page\": \"<integer>\",\n  \"country\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3fe61426-0207-4f40-8a5a-3811a4fecd4f",
+              "name": "Matching designers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "designers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Api-Key-Id",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"certifications\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"category\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"industry\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"language\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"designerLevel\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"lastActivity\": \"<string>\",\n  \"designLimit\": \"<integer>\",\n  \"keywordQuery\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"page\": \"<integer>\",\n  \"country\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalPages\": 8409,\n  \"totalResults\": 8194,\n  \"designers\": [\n    {\n      \"id\": 9565,\n      \"coverImageUrl\": \"string\",\n      \"biography\": \"string\",\n      \"avatarUrl\": \"string\",\n      \"displayName\": \"string\",\n      \"lastSeenAt\": \"string\",\n      \"designs\": [\n        {\n          \"id\": 554,\n          \"description\": \"string\",\n          \"imageUrl\": \"string\",\n          \"title\": \"string\",\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"id\": 3603,\n          \"description\": \"string\",\n          \"imageUrl\": \"string\",\n          \"title\": \"string\",\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ],\n      \"designerLevel\": \"string\",\n      \"expertise\": \"string\",\n      \"expertiseCategories\": [\n        \"string\",\n        \"string\"\n      ],\n      \"review\": {},\n      \"reviews\": [\n        {\n          \"rating\": 5412.641301400456,\n          \"message\": \"string\",\n          \"displayName\": \"string\"\n        },\n        {\n          \"rating\": 9691.075125405452,\n          \"message\": \"string\",\n          \"displayName\": \"string\"\n        }\n      ],\n      \"country\": \"string\",\n      \"repeatCount\": 9957,\n      \"responsivenessScore\": 1732.9043848474657,\n      \"completedProjectsCount\": 2943,\n      \"isAvailable\": false,\n      \"workPreferences\": {},\n      \"certifications\": [\n        \"string\",\n        \"string\"\n      ],\n      \"isBoosted\": false\n    },\n    {\n      \"id\": 8664,\n      \"coverImageUrl\": \"string\",\n      \"biography\": \"string\",\n      \"avatarUrl\": \"string\",\n      \"displayName\": \"string\",\n      \"lastSeenAt\": \"string\",\n      \"designs\": [\n        {\n          \"id\": 513,\n          \"description\": \"string\",\n          \"imageUrl\": \"string\",\n          \"title\": \"string\",\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"id\": 5081,\n          \"description\": \"string\",\n          \"imageUrl\": \"string\",\n          \"title\": \"string\",\n          \"tags\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ],\n      \"designerLevel\": \"string\",\n      \"expertise\": \"string\",\n      \"expertiseCategories\": [\n        \"string\",\n        \"string\"\n      ],\n      \"review\": {},\n      \"reviews\": [\n        {\n          \"rating\": 6129.728425239355,\n          \"message\": \"string\",\n          \"displayName\": \"string\"\n        },\n        {\n          \"rating\": 9844.256409956113,\n          \"message\": \"string\",\n          \"displayName\": \"string\"\n        }\n      ],\n      \"country\": \"string\",\n      \"repeatCount\": 1984,\n      \"responsivenessScore\": 5640.940154077347,\n      \"completedProjectsCount\": 2860,\n      \"isAvailable\": false,\n      \"workPreferences\": {},\n      \"certifications\": [\n        \"string\",\n        \"string\"\n      ],\n      \"isBoosted\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8efb0a7d-8e3e-415f-ad9e-1804aa3d5c77",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "designers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Api-Key-Id",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"certifications\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"category\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"industry\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"language\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"designerLevel\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"lastActivity\": \"<string>\",\n  \"designLimit\": \"<integer>\",\n  \"keywordQuery\": \"<string>\",\n  \"pageSize\": \"<integer>\",\n  \"page\": \"<integer>\",\n  \"country\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\"\n    }\n  ],\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7d47f9c4-3268-4d1b-8873-f1aad95a4ee9",
+          "name": "Retrieve a designer",
+          "request": {
+            "name": "Retrieve a designer",
+            "description": {
+              "content": "Retrieve a single designer profile by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "designers",
+                ":designerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "designerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7cb4dcf5-9125-4a0f-9b97-cba05bf4e516",
+              "name": "Designer profile",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "designers",
+                    ":designerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "designerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Api-Key-Id",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 2106,\n  \"coverImageUrl\": \"string\",\n  \"biography\": \"string\",\n  \"avatarUrl\": \"string\",\n  \"displayName\": \"string\",\n  \"lastSeenAt\": \"string\",\n  \"designs\": [\n    {\n      \"id\": 8753,\n      \"description\": \"string\",\n      \"imageUrl\": \"string\",\n      \"title\": \"string\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"id\": 6886,\n      \"description\": \"string\",\n      \"imageUrl\": \"string\",\n      \"title\": \"string\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"designerLevel\": \"string\",\n  \"expertise\": \"string\",\n  \"expertiseCategories\": [\n    \"string\",\n    \"string\"\n  ],\n  \"review\": {},\n  \"reviews\": [\n    {\n      \"rating\": 4305.308401821812,\n      \"message\": \"string\",\n      \"displayName\": \"string\"\n    },\n    {\n      \"rating\": 3013.5984762946687,\n      \"message\": \"string\",\n      \"displayName\": \"string\"\n    }\n  ],\n  \"country\": \"string\",\n  \"repeatCount\": 4196,\n  \"responsivenessScore\": 7443.204552194863,\n  \"completedProjectsCount\": 5597,\n  \"isAvailable\": true,\n  \"workPreferences\": {},\n  \"certifications\": [\n    \"string\",\n    \"string\"\n  ],\n  \"isBoosted\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "07372feb-8320-46c4-9ad7-b1b9c7aea6ba",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "designers",
+                    ":designerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "designerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Api-Key-Id",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\"\n    }\n  ],\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8e51abf9-989f-4566-8db0-6359829579fc",
+          "name": "Retrieve designer reviews",
+          "request": {
+            "name": "Retrieve designer reviews",
+            "description": {
+              "content": "Fetch customer reviews for a designer.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "designers",
+                ":designerId",
+                "reviews"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "designerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "03e28fdf-7912-4d07-a83c-dc5b0afe4917",
+              "name": "Designer reviews",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "designers",
+                    ":designerId",
+                    "reviews"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "designerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Api-Key-Id",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalPages\": 9301,\n  \"totalResults\": 7247,\n  \"reviews\": [\n    {\n      \"rating\": 7789.627818370084,\n      \"message\": \"string\",\n      \"displayName\": \"string\"\n    },\n    {\n      \"rating\": 4167.5532763204255,\n      \"message\": \"string\",\n      \"displayName\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0249aaea-1212-44d9-8085-5b9b97b514ae",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "designers",
+                    ":designerId",
+                    "reviews"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "designerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Api-Key-Id",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\"\n    }\n  ],\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b67671c9-e281-4255-b59d-b9964e613e3b",
+          "name": "Retrieve designer portfolio",
+          "request": {
+            "name": "Retrieve designer portfolio",
+            "description": {
+              "content": "Get portfolio designs for a designer.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "designers",
+                ":designerId",
+                "designs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "category",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "category",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "designerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d596f627-41a4-4f9a-ad2c-a23577190721",
+              "name": "Portfolio designs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "designers",
+                    ":designerId",
+                    "designs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "category",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "designerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Api-Key-Id",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalPages\": 9346,\n  \"totalResults\": 5805,\n  \"designs\": [\n    {\n      \"id\": 5224,\n      \"description\": \"string\",\n      \"imageUrl\": \"string\",\n      \"title\": \"string\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"id\": 1779,\n      \"description\": \"string\",\n      \"imageUrl\": \"string\",\n      \"title\": \"string\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "efc2f106-bb94-4975-9ec9-6582503ead1c",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "designers",
+                    ":designerId",
+                    "designs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "category",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "designerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Api-Key-Id",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\"\n    }\n  ],\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.99designs.com/resources/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Api-Key-Id"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "157fba0e-7772-4d0a-a29d-1846c758bf76",
+    "name": "99designs Briefs Designers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The 99designs API lets platforms and partners embed a fully-managed creative marketplace: search and match designers, collect design briefs, place orders against 99designs products, and generate partner coupons. Authentication uses a pair of API key headers (Api-Key-Id and Api-Key-Secret) issued by 99designs after a partner requests access.\n\nContact Support:\n Name: 99designs API",
+      "type": "text/plain"
+    }
+  }
+}

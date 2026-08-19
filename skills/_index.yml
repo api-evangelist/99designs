@@ -1,12 +1,16 @@
-generated: '2026-07-17'
+generated: '2026-08-13'
 method: generated
-source: openapi/99designs-openapi.yml
+source: openapi/_original/99designs-openapi.yml
 skills:
   - file: 99designs-find-and-book-designer.md
     name: Find and evaluate a 99designs designer
-    api: openapi/99designs-openapi.yml
+    api: openapi/99designs-designers-api-openapi.yml
     operations: [searchDesigners, getDesigner, getDesignerReviews, getDesignerDesigns]
   - file: 99designs-submit-brief-and-order.md
     name: Submit a brief and place a 99designs order
-    api: openapi/99designs-openapi.yml
+    api: openapi/_original/99designs-openapi.yml
     operations: [createBrief, createOrder]
+  - file: 99designs-list-products-and-order.md
+    name: List partner products and order the right one
+    api: openapi/99designs-products-api-openapi.yml
+    operations: [listProducts, createOrder]

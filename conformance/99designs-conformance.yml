@@ -1,6 +1,11 @@
-generated: '2026-07-17'
+generated: '2026-08-13'
 method: derived
-source: openapi/99designs-openapi.yml
+source: openapi/_original/99designs-openapi.yml, live probes of api.99designs.com
+note: >-
+  Standards posture only. 99designs publishes no compliance program, certification
+  list or trust center of its own — trust.99designs.com does not resolve,
+  99designs.com/trust returns 404, and /security redirects to the homepage — so no
+  Compliance pointer is emitted for this provider.
 standards:
   - id: oauth2
     conforms: false
@@ -20,3 +25,17 @@ standards:
   - id: rest
     conforms: true
     evidence: RESTful resource paths over HTTPS with JSON payloads
+  - id: rfc9331-ratelimit-headers
+    conforms: false
+    evidence: >-
+      live responses carry the de-facto X-RateLimit-Limit/Remaining/Reset triple, not
+      the standard RateLimit / RateLimit-Policy fields
+  - id: rfc9116-security-txt
+    conforms: true
+    evidence: https://99designs.com/.well-known/security.txt returns 200 with a Contact field
+  - id: rfc8594-sunset-header
+    conforms: false
+    evidence: no Sunset or Deprecation header observed and no deprecation policy published
+  - id: a2a-agent-card
+    conforms: false
+    evidence: /.well-known/agent-card.json and /.well-known/agent.json 404 on both hosts

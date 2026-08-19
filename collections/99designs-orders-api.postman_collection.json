@@ -1,0 +1,199 @@
+{
+  "item": [
+    {
+      "id": "49996ea1-88c1-4482-82d4-62f6c8f63577",
+      "name": "Orders",
+      "description": {
+        "content": "Place orders against 99designs products.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ff850663-3e79-440f-9da6-074158956543",
+          "name": "Create an order",
+          "request": {
+            "name": "Create an order",
+            "description": {
+              "content": "Place an order against a 99designs product version.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"productId\": \"<string>\",\n  \"brief\": {\n    \"title\": \"<string>\",\n    \"description\": \"<string>\",\n    \"category\": \"<string>\",\n    \"timeline\": \"<string>\",\n    \"approval\": \"<string>\",\n    \"businessName\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9fc8103c-c908-4902-b73e-e94a1cf8d3be",
+              "name": "Order created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Api-Key-Id",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"productId\": \"<string>\",\n  \"brief\": {\n    \"title\": \"<string>\",\n    \"description\": \"<string>\",\n    \"category\": \"<string>\",\n    \"timeline\": \"<string>\",\n    \"approval\": \"<string>\",\n    \"businessName\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orderItems\": [\n    {\n      \"briefId\": \"string\",\n      \"returnUrls\": {\n        \"briefStart\": \"string\",\n        \"briefEnd\": \"string\",\n        \"review\": \"string\",\n        \"postReview\": \"string\"\n      }\n    },\n    {\n      \"briefId\": \"string\",\n      \"returnUrls\": {\n        \"briefStart\": \"string\",\n        \"briefEnd\": \"string\",\n        \"review\": \"string\",\n        \"postReview\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2e7bc430-11e2-4848-ba6e-58f663e145da",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Api-Key-Id",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"productId\": \"<string>\",\n  \"brief\": {\n    \"title\": \"<string>\",\n    \"description\": \"<string>\",\n    \"category\": \"<string>\",\n    \"timeline\": \"<string>\",\n    \"approval\": \"<string>\",\n    \"businessName\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\"\n    }\n  ],\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.99designs.com/resources/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Api-Key-Id"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9afd7689-c2e5-4aeb-8688-2493298baa77",
+    "name": "99designs Briefs Orders API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The 99designs API lets platforms and partners embed a fully-managed creative marketplace: search and match designers, collect design briefs, place orders against 99designs products, and generate partner coupons. Authentication uses a pair of API key headers (Api-Key-Id and Api-Key-Secret) issued by 99designs after a partner requests access.\n\nContact Support:\n Name: 99designs API",
+      "type": "text/plain"
+    }
+  }
+}

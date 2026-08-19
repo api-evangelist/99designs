@@ -1,21 +1,46 @@
-generated: '2026-07-17'
+generated: '2026-08-13'
 method: searched
 source: live probes of 99designs.com + api.99designs.com
+note: >-
+  One real document is served: an RFC 9116 security.txt on the website host, pointing
+  at the Cimpress bug bounty contact. Every other well-known path 404s on both hosts,
+  including the whole /.well-known/ surface on the API host itself.
 hosts:
-  - host: https://99designs.com
-    documents:
-      - path: /.well-known/security.txt
-        status: 200
-        file: 99designs-security.txt
-  - host: https://api.99designs.com
-    documents:
-      - path: /.well-known/security.txt
-        status: 404
-      - path: /.well-known/openid-configuration
-        status: 404
-      - path: /.well-known/oauth-authorization-server
-        status: 404
-      - path: /.well-known/ai-plugin.json
-        status: 404
-      - path: /.well-known/api-catalog
-        status: 404
+- host: https://99designs.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: 99designs-security.txt
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://api.99designs.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+checked: '2026-08-13'

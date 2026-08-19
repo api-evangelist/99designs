@@ -1,23 +1,40 @@
-generated: '2026-07-17'
+generated: '2026-08-13'
 method: generated
-source: openapi/99designs-openapi.yml
+source: openapi/99designs-briefs-api-openapi.yml, openapi/99designs-coupons-api-openapi.yml,
+  openapi/99designs-designers-api-openapi.yml, openapi/99designs-orders-api-openapi.yml, openapi/99designs-products-api-openapi.yml
 description: Recommended x-agentic-access execution contracts, classified heuristically from
   the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
   audience per deployment. See research/curity/agentic-governance/.
 summary:
-  operations: 7
+  operations: 8
   by_action_class:
     acting: 4
-    connected: 3
+    connected: 4
   by_consequence:
     write: 3
-    read: 3
+    read: 4
     physical: 1
   human_in_the_loop_required: 0
 operations:
 - path: /briefs
   method: post
   operationId: createBrief
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /coupons
+  method: post
+  operationId: createCoupon
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -95,19 +112,13 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /coupons
-  method: post
-  operationId: createCoupon
+- path: /products
+  method: get
+  operationId: listProducts
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none

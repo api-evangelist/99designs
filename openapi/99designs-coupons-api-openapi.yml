@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  title: 99designs Briefs Coupons API
+  title: 99designs Coupons API
   description: 'The 99designs API lets platforms and partners embed a fully-managed creative marketplace: search and match designers, collect design briefs, place orders against 99designs products, and generate partner coupons. Authentication uses a pair of API key headers (Api-Key-Id and Api-Key-Secret) issued by 99designs after a partner requests access.'
   version: v1
   contact:
@@ -27,21 +27,69 @@ paths:
       tags:
       - Coupons
       summary: Generate a partner coupon
-      description: Generate a partner coupon token via the REST API.
+      description: >-
+        Returns a signed partner coupon that can be passed back to 99designs via URL
+        parameter, and a URL based on the campaign ID that can be used directly.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CouponRequest'
       responses:
-        '201':
-          description: Coupon created
+        '200':
+          description: Generated coupon
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CouponCreated'
         '400':
-          $ref: '#/components/responses/ValidationError'
+          $ref: '#/components/responses/BadRequest'
 components:
   responses:
-    ValidationError:
-      description: Validation error
+    BadRequest:
+      description: Bad request
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorEnvelope'
   schemas:
+    CouponRequest:
+      type: object
+      properties:
+        aud:
+          type: string
+          description: >-
+            Name of the campaign the token relates to. This will be provided by
+            99designs for your specific campaign.
+        sub:
+          type: string
+          description: >-
+            Identify the user for which this token relates to. One or both of sub or
+            jti are required.
+        jti:
+          type: string
+          description: >-
+            Identify a specific token, unique per token. One or both of sub or jti are
+            required.
+        exp:
+          type: integer
+          description: UNIX timestamp after which the coupon can no longer be used.
+        nbf:
+          type: integer
+          description: UNIX timestamp before which the coupon can not be used.
+    CouponCreated:
+      type: object
+      properties:
+        jwt:
+          type: string
+          description: Signed partner coupon token.
+        url:
+          type: string
+          description: Brief-creation URL carrying the coupon as the pc query parameter.
+        couponId:
+          type: string
+          format: uuid
     ErrorEnvelope:
       type: object
       properties:

@@ -1,0 +1,102 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  registry.npmjs.org, rubygems.org, pypi.org, packagist.org and the 99designs GitHub
+  organization, checked against the published API reference at
+  https://api.99designs.com/resources/docs/
+summary: >-
+  99designs publishes NO client library for the current partner API
+  (https://api.99designs.com/resources/v1). The only first-party API client packages
+  on any registry are the 99designs Tasks API clients, both last released in July 2015
+  for an API surface that no longer resolves (tasks.99designs.com does not exist in
+  DNS and github.com/99designs/tasks-api-ruby returns 404). The 99designs GitHub
+  organization is active and publishes widely used open-source infrastructure
+  libraries (gqlgen, aws-vault, keyring, http-signatures-*), but none of them are
+  clients for the 99designs API — they are recorded below as first-party open source
+  with api_client false so they are never mistaken for an SDK.
+api_client_count: 0
+package_count: 2
+packages:
+- language: javascript
+  registry: npm
+  name: 99designs-tasks
+  url: https://www.npmjs.com/package/99designs-tasks
+  install: npm install 99designs-tasks
+  official: true
+  api_client: true
+  api: 99designs Tasks API (retired)
+  version: 0.0.7
+  published: '2015-07-03'
+  status: abandoned
+  note: >-
+    First-party Node.js client for the legacy 99designs Tasks API. Last published
+    2015-07-03; the Tasks API host does not resolve and the current partner API
+    (resources/v1) is not covered by this package.
+- language: ruby
+  registry: rubygems
+  name: 99designs-tasks
+  url: https://rubygems.org/gems/99designs-tasks
+  install: gem install 99designs-tasks
+  official: true
+  api_client: true
+  api: 99designs Tasks API (retired)
+  version: 0.0.7
+  published: '2015-07-02'
+  source_code: https://github.com/99designs/tasks-api-ruby
+  status: abandoned
+  note: >-
+    First-party Ruby client for the legacy 99designs Tasks API. Last published
+    2015-07-02; the linked source repository github.com/99designs/tasks-api-ruby now
+    returns HTTP 404.
+first_party_open_source:
+  note: >-
+    Actively maintained 99designs open-source libraries. These are general-purpose
+    developer tools published by the company, NOT clients for the 99designs API, and
+    they intentionally do not earn an SDK pointer.
+  projects:
+  - name: gqlgen
+    language: go
+    registry: pkg.go.dev
+    url: https://pkg.go.dev/github.com/99designs/gqlgen
+    repo: https://github.com/99designs/gqlgen
+    api_client: false
+  - name: aws-vault
+    language: go
+    registry: pkg.go.dev
+    url: https://pkg.go.dev/github.com/99designs/aws-vault
+    repo: https://github.com/99designs/aws-vault
+    api_client: false
+  - name: keyring
+    language: go
+    registry: pkg.go.dev
+    url: https://pkg.go.dev/github.com/99designs/keyring
+    repo: https://github.com/99designs/keyring
+    api_client: false
+  - name: 99designs/http-signatures
+    language: php
+    registry: packagist
+    url: https://packagist.org/packages/99designs/http-signatures
+    repo: https://github.com/99designs/http-signatures-php
+    api_client: false
+  - name: 99designs/phumbor
+    language: php
+    registry: packagist
+    url: https://packagist.org/packages/99designs/phumbor
+    repo: https://github.com/99designs/phumbor
+    api_client: false
+registries_checked:
+- registry: npm
+  query: 99designs
+  result: only the 2015 Tasks API client and third-party packages
+- registry: pypi
+  query: 99designs
+  result: no package (HTTP 404)
+- registry: rubygems
+  query: 99designs
+  result: 99designs-tasks 0.0.7 only
+- registry: packagist
+  query: 99designs
+  result: first-party PHP libraries, none an API client
+- registry: pkg.go.dev
+  query: github.com/99designs
+  result: infrastructure libraries only, none an API client

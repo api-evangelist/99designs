@@ -1,0 +1,170 @@
+{
+  "item": [
+    {
+      "id": "c09f9389-5680-4465-bc9b-02a665be0fc0",
+      "name": "Products",
+      "description": {
+        "content": "List the 99designs products available to the calling partner.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7231d653-78e1-4f09-b987-65226daa84c9",
+          "name": "Your products",
+          "request": {
+            "name": "Your products",
+            "description": {
+              "content": "Given your API credentials, this endpoint returns all the products you have available for sale. This includes details about the product itself, and a JSON Schema representation of the brief clients fill in to purchase this product.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "76ae833b-35bd-4b56-8613-498b1d33c620",
+              "name": "Products",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Api-Key-Id",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"products\": [\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"price\": 4718,\n      \"details\": {\n        \"title\": \"string\",\n        \"description\": \"string\"\n      },\n      \"additionalDetails\": {\n        \"title\": \"string\",\n        \"description\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"price\": 9799,\n      \"details\": {\n        \"title\": \"string\",\n        \"description\": \"string\"\n      },\n      \"additionalDetails\": {\n        \"title\": \"string\",\n        \"description\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f24628dc-b717-4b42-9801-70a69d0dd851",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Api-Key-Id",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\"\n    }\n  ],\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.99designs.com/resources/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Api-Key-Id"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "cad0aaee-2336-4016-a179-b3603b255d26",
+    "name": "99designs Products API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The 99designs API lets platforms and partners embed a fully-managed creative marketplace: search and match designers, collect design briefs, place orders against 99designs products, and generate partner coupons. Authentication uses a pair of API key headers (Api-Key-Id and Api-Key-Secret) issued by 99designs after a partner requests access.\n\nContact Support:\n Name: 99designs API",
+      "type": "text/plain"
+    }
+  }
+}

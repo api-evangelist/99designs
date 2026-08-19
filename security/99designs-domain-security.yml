@@ -1,4 +1,4 @@
-generated: '2026-07-17'
+generated: '2026-08-13'
 method: probed
 source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
 hosts:
@@ -8,6 +8,16 @@ hosts:
   cert_expires: Nov  7 23:59:59 2026 GMT
   hsts: true
   hsts_max_age: 31536000
+- host: api.99designs.com
+  https: true
+  tls_version: TLSv1.2
+  cert_expires: Feb  1 23:59:59 2027 GMT
+  hsts: null
+  note: >-
+    The probe reads the host root, which returns 404 with no HSTS header. Responses
+    from the API itself (e.g. GET /resources/v1/designers) DO carry
+    strict-transport-security: max-age=120; includeSubDomains — a 2-minute max-age,
+    far below the 31536000 the website host sets. Observed 2026-08-13.
 domains:
 - domain: 99designs.com
   dnssec: false
