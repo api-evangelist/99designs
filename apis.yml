@@ -93,6 +93,8 @@ apis:
   humanURL: https://api.99designs.com/resources/docs/products/
   baseURL: https://api.99designs.com/resources/v1
   tags:
+  - Product
+  tags_raw:
   - Products
   properties:
   - type: OpenAPI
@@ -107,6 +109,8 @@ apis:
   humanURL: https://api.99designs.com/resources/docs/
   baseURL: https://api.99designs.com/resources/v1
   tags:
+  - Order
+  tags_raw:
   - Orders
   properties:
   - type: OpenAPI
