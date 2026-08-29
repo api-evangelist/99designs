@@ -137,6 +137,9 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: CapabilityMap
+  url: capabilities/99designs-capability-edges.yml
+  name: 99designs Business Capability Map
 - type: OpenAPI
   url: openapi/_original/99designs-openapi.yml
 - type: Overlay
