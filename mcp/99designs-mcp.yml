@@ -2,11 +2,10 @@ generated: '2026-08-13'
 method: derived
 status: candidate
 source: openapi/_original/99designs-openapi.yml
-note: >-
-  No official hosted/remote MCP server was found for 99designs — no MCP endpoint is
-  named in the API reference, on https://99designs.com/api, in the 99designs GitHub
-  organization, or in any package registry. This is a candidate tool list derived from
-  the documented OpenAPI operations; nothing here is served by the provider.
+note: No official hosted/remote MCP server was found for 99designs — no MCP endpoint is named in the API
+  reference, on https://99designs.com/api, in the 99designs GitHub organization, or in any package registry.
+  This is a candidate tool list derived from the documented OpenAPI operations; nothing here is served
+  by the provider.
 server:
   name: 99designs
   transport: stdio
@@ -37,15 +36,7 @@ tools:
   source_operation: openapi/99designs-openapi.yml#createCoupon
 deployment:
   mode: none
-  endpoint: null
-  install: null
-  package: null
-  auth: api-key
-  verified: searched
-  tools: 8
-  checked: '2026-08-13'
-  source: >-
-    Searched the API reference, https://99designs.com/api, the 99designs GitHub
-    organization (all public repos listed 2026-08-13) and npm/PyPI/RubyGems/Packagist
-    for an MCP server. None exists — remote or stdio. Candidate tools above are
-    derived from the OpenAPI; the auth model shown is the API's own key-pair headers.
+  verified: derived
+  tools: 7
+  checked: '2026-08-12'
+  source: catalog MCP census

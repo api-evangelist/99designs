@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: 99designs Coupons API
   description: 'The 99designs API lets platforms and partners embed a fully-managed creative marketplace: search and match designers, collect design briefs, place orders against 99designs products, and generate partner coupons. Authentication uses a pair of API key headers (Api-Key-Id and Api-Key-Secret) issued by 99designs after a partner requests access.'
@@ -27,9 +27,7 @@ paths:
       tags:
       - Coupons
       summary: Generate a partner coupon
-      description: >-
-        Returns a signed partner coupon that can be passed back to 99designs via URL
-        parameter, and a URL based on the campaign ID that can be used directly.
+      description: Returns a signed partner coupon that can be passed back to 99designs via URL parameter, and a URL based on the campaign ID that can be used directly.
       requestBody:
         required: true
         content:
@@ -46,32 +44,33 @@ paths:
         '400':
           $ref: '#/components/responses/BadRequest'
 components:
-  responses:
-    BadRequest:
-      description: Bad request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
   schemas:
+    ErrorEnvelope:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              path:
+                type: string
+              message:
+                type: string
+        message:
+          type: string
     CouponRequest:
       type: object
       properties:
         aud:
           type: string
-          description: >-
-            Name of the campaign the token relates to. This will be provided by
-            99designs for your specific campaign.
+          description: Name of the campaign the token relates to. This will be provided by 99designs for your specific campaign.
         sub:
           type: string
-          description: >-
-            Identify the user for which this token relates to. One or both of sub or
-            jti are required.
+          description: Identify the user for which this token relates to. One or both of sub or jti are required.
         jti:
           type: string
-          description: >-
-            Identify a specific token, unique per token. One or both of sub or jti are
-            required.
+          description: Identify a specific token, unique per token. One or both of sub or jti are required.
         exp:
           type: integer
           description: UNIX timestamp after which the coupon can no longer be used.
@@ -90,20 +89,13 @@ components:
         couponId:
           type: string
           format: uuid
-    ErrorEnvelope:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              path:
-                type: string
-              message:
-                type: string
-        message:
-          type: string
+  responses:
+    BadRequest:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
   securitySchemes:
     ApiKeyId:
       type: apiKey

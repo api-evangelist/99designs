@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: 99designs Briefs Designers API
+  title: 99designs Designers API
   description: 'The 99designs API lets platforms and partners embed a fully-managed creative marketplace: search and match designers, collect design briefs, place orders against 99designs products, and generate partner coupons. Authentication uses a pair of API key headers (Api-Key-Id and Api-Key-Secret) issued by 99designs after a partner requests access.'
   version: v1
   contact:
@@ -109,15 +109,17 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    Review:
+    ReviewResults:
       type: object
       properties:
-        rating:
-          type: number
-        message:
-          type: string
-        displayName:
-          type: string
+        totalPages:
+          type: integer
+        totalResults:
+          type: integer
+        reviews:
+          type: array
+          items:
+            $ref: '#/components/schemas/Review'
     Designer:
       type: object
       properties:
@@ -169,6 +171,57 @@ components:
             type: string
         isBoosted:
           type: boolean
+    DesignerSearchResults:
+      type: object
+      properties:
+        totalPages:
+          type: integer
+        totalResults:
+          type: integer
+        designers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Designer'
+    ErrorEnvelope:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              path:
+                type: string
+              message:
+                type: string
+        message:
+          type: string
+    DesignResults:
+      type: object
+      properties:
+        totalPages:
+          type: integer
+        totalResults:
+          type: integer
+        designs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Design'
+    Design:
+      type: object
+      properties:
+        id:
+          type: integer
+        description:
+          type: string
+        imageUrl:
+          type: string
+        title:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
     DesignerSearchRequest:
       type: object
       properties:
@@ -207,68 +260,15 @@ components:
           items:
             type: string
             description: ISO alpha-2 country code
-    Design:
+    Review:
       type: object
       properties:
-        id:
-          type: integer
-        description:
-          type: string
-        imageUrl:
-          type: string
-        title:
-          type: string
-        tags:
-          type: array
-          items:
-            type: string
-    DesignerSearchResults:
-      type: object
-      properties:
-        totalPages:
-          type: integer
-        totalResults:
-          type: integer
-        designers:
-          type: array
-          items:
-            $ref: '#/components/schemas/Designer'
-    ErrorEnvelope:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              path:
-                type: string
-              message:
-                type: string
+        rating:
+          type: number
         message:
           type: string
-    DesignResults:
-      type: object
-      properties:
-        totalPages:
-          type: integer
-        totalResults:
-          type: integer
-        designs:
-          type: array
-          items:
-            $ref: '#/components/schemas/Design'
-    ReviewResults:
-      type: object
-      properties:
-        totalPages:
-          type: integer
-        totalResults:
-          type: integer
-        reviews:
-          type: array
-          items:
-            $ref: '#/components/schemas/Review'
+        displayName:
+          type: string
   parameters:
     DesignerId:
       name: designerId
@@ -276,25 +276,25 @@ components:
       required: true
       schema:
         type: integer
-    PageSize:
-      name: pageSize
-      in: query
-      schema:
-        type: integer
     Page:
       name: page
       in: query
       schema:
         type: integer
+    PageSize:
+      name: pageSize
+      in: query
+      schema:
+        type: integer
   responses:
-    NotFound:
-      description: Resource not found
+    ValidationError:
+      description: Validation error
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorEnvelope'
-    ValidationError:
-      description: Validation error
+    NotFound:
+      description: Resource not found
       content:
         application/json:
           schema:

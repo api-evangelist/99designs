@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: 99designs Products API
   description: 'The 99designs API lets platforms and partners embed a fully-managed creative marketplace: search and match designers, collect design briefs, place orders against 99designs products, and generate partner coupons. Authentication uses a pair of API key headers (Api-Key-Id and Api-Key-Secret) issued by 99designs after a partner requests access.'
@@ -6,11 +6,11 @@ info:
   contact:
     name: 99designs API
     url: https://99designs.com/api
-  x-apis-json-source: https://api.99designs.com/resources/docs/products/
+  x-apis-json-source: https://api.99designs.com/resources/docs/
   x-provenance:
-    generated: '2026-08-13'
+    generated: '2026-07-17'
     method: searched
-    source: https://api.99designs.com/resources/docs/products/
+    source: https://api.99designs.com/resources/docs/
 servers:
 - url: https://api.99designs.com/resources/v1
   description: Production
@@ -27,10 +27,7 @@ paths:
       tags:
       - Products
       summary: Your products
-      description: >-
-        Given your API credentials, this endpoint returns all the products you have
-        available for sale. This includes details about the product itself, and a JSON
-        Schema representation of the brief clients fill in to purchase this product.
+      description: Given your API credentials, this endpoint returns all the products you have available for sale. This includes details about the product itself, and a JSON Schema representation of the brief clients fill in to purchase this product.
       responses:
         '200':
           description: Products
@@ -41,15 +38,6 @@ paths:
         '400':
           $ref: '#/components/responses/BadRequest'
 components:
-  securitySchemes:
-    ApiKeyId:
-      type: apiKey
-      in: header
-      name: Api-Key-Id
-    ApiKeySecret:
-      type: apiKey
-      in: header
-      name: Api-Key-Secret
   responses:
     BadRequest:
       description: Bad request
@@ -103,3 +91,12 @@ components:
           type: string
         description:
           type: string
+  securitySchemes:
+    ApiKeyId:
+      type: apiKey
+      in: header
+      name: Api-Key-Id
+    ApiKeySecret:
+      type: apiKey
+      in: header
+      name: Api-Key-Secret

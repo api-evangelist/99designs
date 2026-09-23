@@ -1,20 +1,28 @@
 {
   "provider": "99designs",
   "sources": [
-    "99designs-briefs-api-openapi.yml",
-    "99designs-coupons-api-openapi.yml",
-    "99designs-designers-api-openapi.yml",
-    "99designs-orders-api-openapi.yml"
+    "_original/99designs-openapi.yml"
   ],
   "outputs": [
     "99designs-briefs-api-openapi.yml",
     "99designs-coupons-api-openapi.yml",
     "99designs-designers-api-openapi.yml",
-    "99designs-orders-api-openapi.yml"
+    "99designs-orders-api-openapi.yml",
+    "99designs-products-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "99designs-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "99designs-briefs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "99designs-coupons-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "99designs-designers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "99designs-orders-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "99designs-products-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
