@@ -38,13 +38,6 @@ paths:
         '400':
           $ref: '#/components/responses/BadRequest'
 components:
-  responses:
-    BadRequest:
-      description: Bad request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
   schemas:
     ErrorEnvelope:
       type: object
@@ -60,13 +53,13 @@ components:
                 type: string
         message:
           type: string
-    ProductResults:
+    ProductDetail:
       type: object
       properties:
-        products:
-          type: array
-          items:
-            $ref: '#/components/schemas/Product'
+        title:
+          type: string
+        description:
+          type: string
     Product:
       type: object
       properties:
@@ -84,13 +77,20 @@ components:
           $ref: '#/components/schemas/ProductDetail'
         additionalDetails:
           $ref: '#/components/schemas/ProductDetail'
-    ProductDetail:
+    ProductResults:
       type: object
       properties:
-        title:
-          type: string
-        description:
-          type: string
+        products:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
+  responses:
+    BadRequest:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
   securitySchemes:
     ApiKeyId:
       type: apiKey

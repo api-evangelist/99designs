@@ -44,35 +44,7 @@ paths:
         '400':
           $ref: '#/components/responses/ValidationError'
 components:
-  responses:
-    ValidationError:
-      description: Validation error
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
   schemas:
-    BriefCreated:
-      type: object
-      properties:
-        id:
-          type: string
-        briefUrl:
-          type: string
-    ErrorEnvelope:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              path:
-                type: string
-              message:
-                type: string
-        message:
-          type: string
     BriefRequest:
       type: object
       properties:
@@ -119,6 +91,34 @@ components:
           type: string
         language:
           type: string
+    BriefCreated:
+      type: object
+      properties:
+        id:
+          type: string
+        briefUrl:
+          type: string
+    ErrorEnvelope:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              path:
+                type: string
+              message:
+                type: string
+        message:
+          type: string
+  responses:
+    ValidationError:
+      description: Validation error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
   securitySchemes:
     ApiKeyId:
       type: apiKey

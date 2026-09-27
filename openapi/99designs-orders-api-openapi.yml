@@ -52,20 +52,6 @@ components:
           schema:
             $ref: '#/components/schemas/ErrorEnvelope'
   schemas:
-    ErrorEnvelope:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              path:
-                type: string
-              message:
-                type: string
-        message:
-          type: string
     OrderRequest:
       type: object
       required:
@@ -90,6 +76,20 @@ components:
               type: string
             businessName:
               type: string
+    ErrorEnvelope:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              path:
+                type: string
+              message:
+                type: string
+        message:
+          type: string
     OrderCreated:
       type: object
       properties:
