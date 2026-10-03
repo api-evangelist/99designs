@@ -44,14 +44,21 @@ paths:
         '400':
           $ref: '#/components/responses/ValidationError'
 components:
-  responses:
-    ValidationError:
-      description: Validation error
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
   schemas:
+    ErrorEnvelope:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              path:
+                type: string
+              message:
+                type: string
+        message:
+          type: string
     OrderRequest:
       type: object
       required:
@@ -76,20 +83,6 @@ components:
               type: string
             businessName:
               type: string
-    ErrorEnvelope:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              path:
-                type: string
-              message:
-                type: string
-        message:
-          type: string
     OrderCreated:
       type: object
       properties:
@@ -111,6 +104,13 @@ components:
                     type: string
                   postReview:
                     type: string
+  responses:
+    ValidationError:
+      description: Validation error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
   securitySchemes:
     ApiKeyId:
       type: apiKey

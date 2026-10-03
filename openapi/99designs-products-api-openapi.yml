@@ -38,21 +38,14 @@ paths:
         '400':
           $ref: '#/components/responses/BadRequest'
 components:
+  responses:
+    BadRequest:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
   schemas:
-    ErrorEnvelope:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              path:
-                type: string
-              message:
-                type: string
-        message:
-          type: string
     ProductDetail:
       type: object
       properties:
@@ -77,6 +70,20 @@ components:
           $ref: '#/components/schemas/ProductDetail'
         additionalDetails:
           $ref: '#/components/schemas/ProductDetail'
+    ErrorEnvelope:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              path:
+                type: string
+              message:
+                type: string
+        message:
+          type: string
     ProductResults:
       type: object
       properties:
@@ -84,13 +91,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Product'
-  responses:
-    BadRequest:
-      description: Bad request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
   securitySchemes:
     ApiKeyId:
       type: apiKey

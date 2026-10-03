@@ -108,53 +108,20 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  parameters:
-    Page:
-      name: page
-      in: query
-      schema:
-        type: integer
-    PageSize:
-      name: pageSize
-      in: query
-      schema:
-        type: integer
-    DesignerId:
-      name: designerId
-      in: path
-      required: true
-      schema:
-        type: integer
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+    ValidationError:
+      description: Validation error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
   schemas:
-    ErrorEnvelope:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              path:
-                type: string
-              message:
-                type: string
-        message:
-          type: string
-    Design:
-      type: object
-      properties:
-        id:
-          type: integer
-        description:
-          type: string
-        imageUrl:
-          type: string
-        title:
-          type: string
-        tags:
-          type: array
-          items:
-            type: string
     DesignResults:
       type: object
       properties:
@@ -166,44 +133,26 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Design'
-    DesignerSearchRequest:
+    ReviewResults:
       type: object
       properties:
-        certifications:
+        totalPages:
+          type: integer
+        totalResults:
+          type: integer
+        reviews:
           type: array
           items:
-            type: string
-        category:
-          type: array
-          items:
-            type: string
-        industry:
-          type: array
-          items:
-            type: string
-        language:
-          type: array
-          items:
-            type: string
-        designerLevel:
-          type: array
-          items:
-            type: string
-        lastActivity:
+            $ref: '#/components/schemas/Review'
+    Review:
+      type: object
+      properties:
+        rating:
+          type: number
+        message:
           type: string
-        designLimit:
-          type: integer
-        keywordQuery:
+        displayName:
           type: string
-        pageSize:
-          type: integer
-        page:
-          type: integer
-        country:
-          type: array
-          items:
-            type: string
-            description: ISO alpha-2 country code
     Designer:
       type: object
       properties:
@@ -255,14 +204,72 @@ components:
             type: string
         isBoosted:
           type: boolean
-    Review:
+    DesignerSearchRequest:
       type: object
       properties:
-        rating:
-          type: number
-        message:
+        certifications:
+          type: array
+          items:
+            type: string
+        category:
+          type: array
+          items:
+            type: string
+        industry:
+          type: array
+          items:
+            type: string
+        language:
+          type: array
+          items:
+            type: string
+        designerLevel:
+          type: array
+          items:
+            type: string
+        lastActivity:
           type: string
-        displayName:
+        designLimit:
+          type: integer
+        keywordQuery:
+          type: string
+        pageSize:
+          type: integer
+        page:
+          type: integer
+        country:
+          type: array
+          items:
+            type: string
+            description: ISO alpha-2 country code
+    Design:
+      type: object
+      properties:
+        id:
+          type: integer
+        description:
+          type: string
+        imageUrl:
+          type: string
+        title:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+    ErrorEnvelope:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              path:
+                type: string
+              message:
+                type: string
+        message:
           type: string
     DesignerSearchResults:
       type: object
@@ -275,30 +282,23 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Designer'
-    ReviewResults:
-      type: object
-      properties:
-        totalPages:
-          type: integer
-        totalResults:
-          type: integer
-        reviews:
-          type: array
-          items:
-            $ref: '#/components/schemas/Review'
-  responses:
-    ValidationError:
-      description: Validation error
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
+  parameters:
+    Page:
+      name: page
+      in: query
+      schema:
+        type: integer
+    PageSize:
+      name: pageSize
+      in: query
+      schema:
+        type: integer
+    DesignerId:
+      name: designerId
+      in: path
+      required: true
+      schema:
+        type: integer
   securitySchemes:
     ApiKeyId:
       type: apiKey

@@ -45,6 +45,20 @@ paths:
           $ref: '#/components/responses/ValidationError'
 components:
   schemas:
+    ErrorEnvelope:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              path:
+                type: string
+              message:
+                type: string
+        message:
+          type: string
     BriefRequest:
       type: object
       properties:
@@ -97,20 +111,6 @@ components:
         id:
           type: string
         briefUrl:
-          type: string
-    ErrorEnvelope:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              path:
-                type: string
-              message:
-                type: string
-        message:
           type: string
   responses:
     ValidationError:
