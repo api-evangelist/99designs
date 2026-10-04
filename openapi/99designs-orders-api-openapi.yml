@@ -59,6 +59,27 @@ components:
                 type: string
         message:
           type: string
+    OrderCreated:
+      type: object
+      properties:
+        orderItems:
+          type: array
+          items:
+            type: object
+            properties:
+              briefId:
+                type: string
+              returnUrls:
+                type: object
+                properties:
+                  briefStart:
+                    type: string
+                  briefEnd:
+                    type: string
+                  review:
+                    type: string
+                  postReview:
+                    type: string
     OrderRequest:
       type: object
       required:
@@ -83,27 +104,6 @@ components:
               type: string
             businessName:
               type: string
-    OrderCreated:
-      type: object
-      properties:
-        orderItems:
-          type: array
-          items:
-            type: object
-            properties:
-              briefId:
-                type: string
-              returnUrls:
-                type: object
-                properties:
-                  briefStart:
-                    type: string
-                  briefEnd:
-                    type: string
-                  review:
-                    type: string
-                  postReview:
-                    type: string
   responses:
     ValidationError:
       description: Validation error

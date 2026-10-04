@@ -108,51 +108,7 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  responses:
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
-    ValidationError:
-      description: Validation error
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
   schemas:
-    DesignResults:
-      type: object
-      properties:
-        totalPages:
-          type: integer
-        totalResults:
-          type: integer
-        designs:
-          type: array
-          items:
-            $ref: '#/components/schemas/Design'
-    ReviewResults:
-      type: object
-      properties:
-        totalPages:
-          type: integer
-        totalResults:
-          type: integer
-        reviews:
-          type: array
-          items:
-            $ref: '#/components/schemas/Review'
-    Review:
-      type: object
-      properties:
-        rating:
-          type: number
-        message:
-          type: string
-        displayName:
-          type: string
     Designer:
       type: object
       properties:
@@ -204,6 +160,17 @@ components:
             type: string
         isBoosted:
           type: boolean
+    ReviewResults:
+      type: object
+      properties:
+        totalPages:
+          type: integer
+        totalResults:
+          type: integer
+        reviews:
+          type: array
+          items:
+            $ref: '#/components/schemas/Review'
     DesignerSearchRequest:
       type: object
       properties:
@@ -242,6 +209,51 @@ components:
           items:
             type: string
             description: ISO alpha-2 country code
+    DesignerSearchResults:
+      type: object
+      properties:
+        totalPages:
+          type: integer
+        totalResults:
+          type: integer
+        designers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Designer'
+    Review:
+      type: object
+      properties:
+        rating:
+          type: number
+        message:
+          type: string
+        displayName:
+          type: string
+    ErrorEnvelope:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              path:
+                type: string
+              message:
+                type: string
+        message:
+          type: string
+    DesignResults:
+      type: object
+      properties:
+        totalPages:
+          type: integer
+        totalResults:
+          type: integer
+        designs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Design'
     Design:
       type: object
       properties:
@@ -257,31 +269,6 @@ components:
           type: array
           items:
             type: string
-    ErrorEnvelope:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              path:
-                type: string
-              message:
-                type: string
-        message:
-          type: string
-    DesignerSearchResults:
-      type: object
-      properties:
-        totalPages:
-          type: integer
-        totalResults:
-          type: integer
-        designers:
-          type: array
-          items:
-            $ref: '#/components/schemas/Designer'
   parameters:
     Page:
       name: page
@@ -299,6 +286,19 @@ components:
       required: true
       schema:
         type: integer
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+    ValidationError:
+      description: Validation error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
   securitySchemes:
     ApiKeyId:
       type: apiKey
