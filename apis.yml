@@ -47,7 +47,7 @@ x-tier: enriched
 x-tier-reason: portfolio-lead
 specificationVersion: '0.23'
 created: '2026-07-17'
-modified: '2026-08-13'
+modified: '2026-10-06'
 tags:
 - Company
 - Media
@@ -139,6 +139,10 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- url: https://99designs.com/blog/
+  type: Blog
+- url: https://99designs.com/blog/feed/
+  type: BlogRSS
 - type: CapabilityMap
   url: capabilities/99designs-capability-edges.yml
   name: 99designs Business Capability Map
