@@ -1,4 +1,4 @@
-generated: '2026-08-13'
+generated: '2026-09-23'
 method: generated
 source: openapi/99designs-briefs-api-openapi.yml, openapi/99designs-coupons-api-openapi.yml,
   openapi/99designs-designers-api-openapi.yml, openapi/99designs-orders-api-openapi.yml, openapi/99designs-products-api-openapi.yml
@@ -8,11 +8,11 @@ description: Recommended x-agentic-access execution contracts, classified heuris
 summary:
   operations: 8
   by_action_class:
-    acting: 4
-    connected: 4
+    acting: 3
+    connected: 5
   by_consequence:
-    write: 3
-    read: 4
+    write: 2
+    read: 5
     physical: 1
   human_in_the_loop_required: 0
 operations:
@@ -52,18 +52,12 @@ operations:
   method: post
   operationId: searchDesigners
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /designers/{designerId}
   method: get
   operationId: getDesigner
