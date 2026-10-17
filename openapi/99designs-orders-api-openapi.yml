@@ -44,7 +44,38 @@ paths:
         '400':
           $ref: '#/components/responses/ValidationError'
 components:
+  responses:
+    ValidationError:
+      description: Validation error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
   schemas:
+    OrderRequest:
+      type: object
+      required:
+      - productId
+      - brief
+      properties:
+        productId:
+          type: string
+          description: Product name and version, e.g. logo-essential-v1
+        brief:
+          type: object
+          properties:
+            title:
+              type: string
+            description:
+              type: string
+            category:
+              type: string
+            timeline:
+              type: string
+            approval:
+              type: string
+            businessName:
+              type: string
     ErrorEnvelope:
       type: object
       properties:
@@ -80,37 +111,6 @@ components:
                     type: string
                   postReview:
                     type: string
-    OrderRequest:
-      type: object
-      required:
-      - productId
-      - brief
-      properties:
-        productId:
-          type: string
-          description: Product name and version, e.g. logo-essential-v1
-        brief:
-          type: object
-          properties:
-            title:
-              type: string
-            description:
-              type: string
-            category:
-              type: string
-            timeline:
-              type: string
-            approval:
-              type: string
-            businessName:
-              type: string
-  responses:
-    ValidationError:
-      description: Validation error
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
   securitySchemes:
     ApiKeyId:
       type: apiKey

@@ -109,6 +109,63 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
+    DesignerSearchResults:
+      type: object
+      properties:
+        totalPages:
+          type: integer
+        totalResults:
+          type: integer
+        designers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Designer'
+    Review:
+      type: object
+      properties:
+        rating:
+          type: number
+        message:
+          type: string
+        displayName:
+          type: string
+    DesignResults:
+      type: object
+      properties:
+        totalPages:
+          type: integer
+        totalResults:
+          type: integer
+        designs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Design'
+    ReviewResults:
+      type: object
+      properties:
+        totalPages:
+          type: integer
+        totalResults:
+          type: integer
+        reviews:
+          type: array
+          items:
+            $ref: '#/components/schemas/Review'
+    Design:
+      type: object
+      properties:
+        id:
+          type: integer
+        description:
+          type: string
+        imageUrl:
+          type: string
+        title:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
     Designer:
       type: object
       properties:
@@ -160,17 +217,6 @@ components:
             type: string
         isBoosted:
           type: boolean
-    ReviewResults:
-      type: object
-      properties:
-        totalPages:
-          type: integer
-        totalResults:
-          type: integer
-        reviews:
-          type: array
-          items:
-            $ref: '#/components/schemas/Review'
     DesignerSearchRequest:
       type: object
       properties:
@@ -209,26 +255,6 @@ components:
           items:
             type: string
             description: ISO alpha-2 country code
-    DesignerSearchResults:
-      type: object
-      properties:
-        totalPages:
-          type: integer
-        totalResults:
-          type: integer
-        designers:
-          type: array
-          items:
-            $ref: '#/components/schemas/Designer'
-    Review:
-      type: object
-      properties:
-        rating:
-          type: number
-        message:
-          type: string
-        displayName:
-          type: string
     ErrorEnvelope:
       type: object
       properties:
@@ -243,33 +269,13 @@ components:
                 type: string
         message:
           type: string
-    DesignResults:
-      type: object
-      properties:
-        totalPages:
-          type: integer
-        totalResults:
-          type: integer
-        designs:
-          type: array
-          items:
-            $ref: '#/components/schemas/Design'
-    Design:
-      type: object
-      properties:
-        id:
-          type: integer
-        description:
-          type: string
-        imageUrl:
-          type: string
-        title:
-          type: string
-        tags:
-          type: array
-          items:
-            type: string
   parameters:
+    DesignerId:
+      name: designerId
+      in: path
+      required: true
+      schema:
+        type: integer
     Page:
       name: page
       in: query
@@ -280,21 +286,15 @@ components:
       in: query
       schema:
         type: integer
-    DesignerId:
-      name: designerId
-      in: path
-      required: true
-      schema:
-        type: integer
   responses:
-    NotFound:
-      description: Resource not found
+    ValidationError:
+      description: Validation error
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorEnvelope'
-    ValidationError:
-      description: Validation error
+    NotFound:
+      description: Resource not found
       content:
         application/json:
           schema:

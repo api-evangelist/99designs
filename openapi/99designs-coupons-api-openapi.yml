@@ -45,32 +45,6 @@ paths:
           $ref: '#/components/responses/BadRequest'
 components:
   schemas:
-    ErrorEnvelope:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              path:
-                type: string
-              message:
-                type: string
-        message:
-          type: string
-    CouponCreated:
-      type: object
-      properties:
-        jwt:
-          type: string
-          description: Signed partner coupon token.
-        url:
-          type: string
-          description: Brief-creation URL carrying the coupon as the pc query parameter.
-        couponId:
-          type: string
-          format: uuid
     CouponRequest:
       type: object
       properties:
@@ -89,6 +63,32 @@ components:
         nbf:
           type: integer
           description: UNIX timestamp before which the coupon can not be used.
+    CouponCreated:
+      type: object
+      properties:
+        jwt:
+          type: string
+          description: Signed partner coupon token.
+        url:
+          type: string
+          description: Brief-creation URL carrying the coupon as the pc query parameter.
+        couponId:
+          type: string
+          format: uuid
+    ErrorEnvelope:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              path:
+                type: string
+              message:
+                type: string
+        message:
+          type: string
   responses:
     BadRequest:
       description: Bad request

@@ -39,6 +39,20 @@ paths:
           $ref: '#/components/responses/BadRequest'
 components:
   schemas:
+    ProductDetail:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+    ProductResults:
+      type: object
+      properties:
+        products:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
     Product:
       type: object
       properties:
@@ -56,13 +70,6 @@ components:
           $ref: '#/components/schemas/ProductDetail'
         additionalDetails:
           $ref: '#/components/schemas/ProductDetail'
-    ProductResults:
-      type: object
-      properties:
-        products:
-          type: array
-          items:
-            $ref: '#/components/schemas/Product'
     ErrorEnvelope:
       type: object
       properties:
@@ -76,13 +83,6 @@ components:
               message:
                 type: string
         message:
-          type: string
-    ProductDetail:
-      type: object
-      properties:
-        title:
-          type: string
-        description:
           type: string
   responses:
     BadRequest:
