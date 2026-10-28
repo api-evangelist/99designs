@@ -64,6 +64,140 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-99designs is a company surfaced as a portfolio company of accel and added to the API Evangelist network as a stub for enrichment. Sector: media. This profile is a lead awaiting the enrichment pipeline.
+99designs by Vista is a global creative marketplace connecting clients with a worldwide network of freelance designers for logos, brand identity, web and packaging design, illustration, and more, using both a design-contest model and one-to-one projects. Its partner API (base https://api.99designs.com/resources/v1) lets platforms embed a fully-managed creative marketplace: search and match designers, retrieve designer profiles, reviews and portfolios, collect design briefs, list the products a partner has available for sale, place orders against those product versions, and generate partner coupons. Authentication uses a pair of API key headers (Api-Key-Id and Api-Key-Secret) issued to partners on request — access is sales-gated rather than self-serve, and no API plans or pricing are published. Founded in 2008 as a SitePoint spin-off and acquired by Cimpress/Vista in 2020.
 
-Source: portfolio company of [accel](https://github.com/api-evangelist/accel) — http://www.99designs.com
+**Areas:** Company · Media · Design · Marketplace · Creative · Freelance · Graphic Design · Branding
+
+## 99designs on APIs.io
+
+Everything profiled for 99designs is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/99designs/](https://apis.io/providers/99designs/)** — or go straight to one of the APIs or properties below.
+
+### APIs (5)
+
+- [99designs Briefs API](https://apis.io/apis/99designs/99designs-briefs-api/) — Collect design briefs.
+- [99designs Coupons API](https://apis.io/apis/99designs/99designs-coupons-api/) — Generate partner coupon tokens.
+- [99designs Designers API](https://apis.io/apis/99designs/99designs-designers-api/) — Search and retrieve designers, reviews, and portfolios.
+- [99designs Products API](https://apis.io/apis/99designs/99designs-products-api/) — List the 99designs products a partner has available for sale, with prices and the brief schema each product version requires.
+- [99designs Orders API](https://apis.io/apis/99designs/99designs-orders-api/) — Place orders against 99designs products.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [99designs](https://apis.io/servers/99designs/99designs/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [99Designs Agentic Access](https://apis.io/agentic-access/99designs/99designs-agentic-access/)
+
+#### Collections (5)
+
+Postman and Open Collection request collections.
+
+- [99designs Briefs API](https://apis.io/collections/99designs/open-99designs-briefs-api/)
+- [99designs Coupons API](https://apis.io/collections/99designs/open-99designs-coupons-api/)
+- [99designs Briefs Designers API](https://apis.io/collections/99designs/open-99designs-designers-api/)
+- [99designs Briefs Orders API](https://apis.io/collections/99designs/open-99designs-orders-api/)
+- [99designs Products API](https://apis.io/collections/99designs/open-99designs-products-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [99Designs Overlay](https://apis.io/overlays/99designs/99designs-overlay/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [99Designs Authentication](https://apis.io/security/99designs/99designs-authentication/)
+- [99Designs Domain Security](https://apis.io/security/99designs/99designs-domain-security/)
+- [99Designs Vulnerability Disclosure](https://apis.io/security/99designs/99designs-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [99Designs Plans Pricing](https://apis.io/plans/99designs/99designs-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [99Designs Rate Limits](https://apis.io/rate-limits/99designs/99designs-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.99designs.com)
+- [Documentation](https://api.99designs.com/resources/docs/)
+- [Getting started](https://api.99designs.com/resources/docs/#getting-started)
+- [API reference](https://api.99designs.com/resources/docs/)
+- [Pricing](https://99designs.com/pricing)
+- [Sign up](https://99designs.com/api)
+- [Support](https://support.99designs.com)
+- [Blog](https://99designs.com/blog/)
+- [Security](https://99designs.com/.well-known/security.txt)
+- [Terms of service](https://99designs.com/legal/terms-and-conditions)
+- [Privacy policy](https://99designs.com/legal/privacy)
+- [GitHub](https://github.com/99designs)
+
+## API Evangelist rating
+
+**Kin Score 46.6** — developing · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 50.6 |
+| Contract governance | 4.5 |
+| Operational transparency | 28.9 |
+| Developer ergonomics | 58.9 |
+| Access clarity | 44.7 |
+
+**Agent readiness 21.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 30.4** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/99designs/](https://apis.io/providers/99designs/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for 99designs: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/99designs/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
