@@ -94,7 +94,7 @@ Model Context Protocol servers that expose the API to agents.
 
 Which operations an agent can call, which act, and which need a human in the loop.
 
-- [99Designs Agentic Access](https://apis.io/agentic-access/99designs/99designs-agentic-access/)
+- [99designs Agentic Access](https://apis.io/agentic-access/99designs/99designs-agentic-access/)
 
 #### Collections (5)
 
@@ -110,27 +110,39 @@ Postman and Open Collection request collections.
 
 OpenAPI overlays, including conversational phrasing for each operation.
 
-- [99Designs Overlay](https://apis.io/overlays/99designs/99designs-overlay/)
+- [99designs Overlay](https://apis.io/overlays/99designs/99designs-overlay/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [99designs API Rules](https://apis.io/rules/99designs/99designs-rules/)
 
 #### Security (3)
 
 Authentication, trust centre, and vulnerability disclosure.
 
-- [99Designs Authentication](https://apis.io/security/99designs/99designs-authentication/)
-- [99Designs Domain Security](https://apis.io/security/99designs/99designs-domain-security/)
-- [99Designs Vulnerability Disclosure](https://apis.io/security/99designs/99designs-vulnerability-disclosure/)
+- [99designs Authentication](https://apis.io/security/99designs/99designs-authentication/)
+- [99designs Domain Security](https://apis.io/security/99designs/99designs-domain-security/)
+- [99designs Vulnerability Disclosure](https://apis.io/security/99designs/99designs-vulnerability-disclosure/)
 
 #### Plans and pricing (1)
 
 Published plans, tiers and prices.
 
-- [99Designs Plans Pricing](https://apis.io/plans/99designs/99designs-plans-pricing/)
+- [99designs Plans Pricing](https://apis.io/plans/99designs/99designs-plans-pricing/)
 
 #### Rate limits (1)
 
 Published request limits.
 
-- [99Designs Rate Limits](https://apis.io/rate-limits/99designs/99designs-rate-limits/)
+- [99designs Rate Limits](https://apis.io/rate-limits/99designs/99designs-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [99designs Finops](https://apis.io/finops/99designs/99designs-finops/)
 
 ## Where to find this API
 
@@ -151,18 +163,18 @@ Links to the company's own pages. This repository publishes no copy of their spe
 
 ## API Evangelist rating
 
-**Kin Score 46.6** — developing · rubric 0.25.0 · scored 2026-10-23
+**Kin Score 56.4** — strong · rubric 0.28.1 · scored 2026-11-21
 
 | Facet | Score |
 |---|---|
 | Discoverability | 73.2 |
-| Contract quality | 50.6 |
-| Contract governance | 4.5 |
-| Operational transparency | 28.9 |
+| Contract quality | 56.2 |
+| Contract governance | 18.2 |
+| Operational transparency | 28.6 |
 | Developer ergonomics | 58.9 |
-| Access clarity | 44.7 |
+| Access clarity | 78.7 |
 
-**Agent readiness 23.1** — agent-aware
+**Agent readiness 27.4** — agent-aware
 
 | Agent-readiness dimension | Result |
 |---|---|
@@ -172,7 +184,7 @@ Links to the company's own pages. This repository publishes no copy of their spe
 | MCP Server | — |
 | Auth Clarity | bearer (partial credit) |
 | Idempotency | — |
-| Error Semantics | derived (partial credit) |
+| Error Semantics | verified |
 | OpenAPI Examples | — |
 | Rate Limit Signal | documented (partial credit) |
 | Event Surface Described | — |
@@ -187,6 +199,10 @@ Links to the company's own pages. This repository publishes no copy of their spe
 | Agentic Commerce | — |
 | Pagination Ratio | na |
 | Operation Distinctiveness | distinct |
+| MCP Tool Quality | na |
+| Onboarding Descriptor | — |
+| Dns Aid Index | na |
+| Markdown Negotiation | na |
 
 **Regulatory alignment 30.4** — Horizontal (data, software, accessibility, platform)
 
